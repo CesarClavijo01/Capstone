@@ -8,7 +8,6 @@ client.connect();
 
 async function createTables(client){
 
-    console.log("creating tables");
 
     await client.query(`DROP TABLE IF EXISTS rosters`);
     await client.query(`DROP TABLE IF EXISTS users`);
@@ -24,8 +23,6 @@ async function createTables(client){
         logo VARCHAR(255)
     );`);
 
-    console.log('created 1');
-
     await client.query(`CREATE TABLE championships(
         id SERIAL PRIMARY KEY,
         name VARCHAR(100) not null,
@@ -33,8 +30,6 @@ async function createTables(client){
         display_picture TEXT not null,
         info TEXT not null
     );`)
-
-    console.log('created 2');
 
     await client.query(`CREATE TABLE wrestlers(
         id SERIAL PRIMARY KEY,
@@ -47,8 +42,6 @@ async function createTables(client){
         championship_id int REFERENCES championships(id)
     );`)
 
-    console.log('created 3');
-
     await client.query(`CREATE TABLE users(
         id SERIAL PRIMARY KEY, 
         first_name VARCHAR(50) not null,
@@ -59,7 +52,6 @@ async function createTables(client){
         admin BOOLEAN DEFAULT false
     );`)
 
-    console.log('created 4');
 
     await client.query(`CREATE TABLE rosters(
         id SERIAL PRIMARY KEY,
@@ -68,9 +60,6 @@ async function createTables(client){
         brand_id int REFERENCES brands(id) not null
     );`)
 
-    console.log('created 5');
-
-    console.log("tables created");
 };
 
 async function seedBrands(client){
@@ -253,6 +242,13 @@ async function seedRosters(client){
 async function seed(){
     //create tables
     await createTables(client)
+
+    //seed data
+    await seedBrands(client);
+    await seedChampionships(client);
+    await seedWrestlers(client);
+    await seedUsers(client);
+    await seedRosters(client);
 }
 
-seed()
+seed().then(() => process.exit(0));
