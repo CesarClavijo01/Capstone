@@ -10,4 +10,13 @@ router.get('/', async (req, res, next) => {
     res.json(wrestlers);
 })
 
+router.get('/:wrestlerId', async (req, res, next) => {
+    //get single wrestler by id
+    const { wrestlerId } = req.params;
+    
+    const wrestler = await dbWrestlers.getWrestlerById(wrestlerId);
+
+    res.json(wrestler);
+})
+
 module.exports = router
