@@ -10,4 +10,29 @@ async function getAllBrands(){
     return result.rows
 }
 
-module.exports = { getAllBrands };
+async function getBrandById(brandId){
+   
+   try{
+        const { rows: [brand] } = await client.query(`
+            SELECT id, name as brandName, show_time, logo FROM brands
+            WHERE id=$1
+        `, [brandId]);
+        
+        if(!brand){
+            throw{
+                name: 'brandNotFound',
+                message: 'Sorry, we cant find that brand'
+            }
+        }
+
+        return brand
+    }
+    catch(err){
+        throw err;
+    }
+}
+
+module.exports = { 
+    getAllBrands,
+    getBrandById
+ };
