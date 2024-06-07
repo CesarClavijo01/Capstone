@@ -10,4 +10,18 @@ router.get('/', async (req, res, next) => {
     res.json(brands);
 })
 
+router.get('/:brandId', async (req, res, next) => {
+    try{
+    //get brand id
+    const { brandId } = req.params
+    //get the brand with the id
+    const brand = await dbBrands.getBrandById(brandId)
+
+    res.json(brand);
+    }
+    catch(err){
+        throw err
+    }
+})
+
 module.exports = router
