@@ -3,13 +3,15 @@ const router = express.Router();
 
 const dbChampionships = require('../db/championships')
 
+//get all championships
 router.get('/', async (req, res, next) => {
-    //get all brands from the db
+    //get all championships from the db
     const championships = await dbChampionships.getAllChampionships();
     //return them
     res.json(championships);
 })
 
+//get championship by id
 router.get('/:championshipId', async (req, res, next) => {
     try{
         //get the championship id
@@ -20,7 +22,7 @@ router.get('/:championshipId', async (req, res, next) => {
         res.json(championship);
     }
     catch(err){
-        throw err
+        next(err)
     }
 })
 

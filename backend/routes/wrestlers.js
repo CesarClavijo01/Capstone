@@ -3,6 +3,7 @@ const router = express.Router();
 
 const dbWrestlers = require('../db/wrestlers')
 
+//get all wrestlers
 router.get('/', async (req, res, next) => {
     //get all brands from the db
     const wrestlers = await dbWrestlers.getAllWrestlers();
@@ -10,6 +11,7 @@ router.get('/', async (req, res, next) => {
     res.json(wrestlers);
 })
 
+//get wrestlers by Id
 router.get('/:wrestlerId', async (req, res, next) => {
     //get single wrestler by id
     const { wrestlerId } = req.params;

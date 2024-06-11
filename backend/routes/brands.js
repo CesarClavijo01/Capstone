@@ -3,6 +3,7 @@ const router = express.Router();
 
 const dbBrands = require('../db/brands')
 
+//get all brands
 router.get('/', async (req, res, next) => {
     //get all brands from the db
     const brands = await dbBrands.getAllBrands();
@@ -10,6 +11,7 @@ router.get('/', async (req, res, next) => {
     res.json(brands);
 })
 
+//get brands by id
 router.get('/:brandId', async (req, res, next) => {
     try{
     //get brand id
