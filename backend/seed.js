@@ -44,11 +44,11 @@ async function createTables(client){
 
     await client.query(`CREATE TABLE users(
         id SERIAL PRIMARY KEY, 
-        first_name VARCHAR(50) not null,
-        last_name VARCHAR(50) not null,
-        username VARCHAR(50) not null,
-        email VARCHAR(50) not null,
-        password VARCHAR(50) not null,
+        first_name VARCHAR(100) not null,
+        last_name VARCHAR(100) not null,
+        username VARCHAR(100) not null,
+        email VARCHAR(100) not null,
+        password VARCHAR(100) not null,
         admin BOOLEAN DEFAULT false
     );`)
 

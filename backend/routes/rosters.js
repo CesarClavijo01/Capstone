@@ -1,8 +1,16 @@
 const express = require('express');
 const router = express.Router();
 
-router.post('/:userid/:brandid/:wrestlerid', (req, res, next) => {
-    res.send(`${req.params.userid}, ${req.params.brandid}, ${req.params.wrestlerid}`)
-})
+const dbRosters = require('../db/rosters')
+
+router.post('/:userid/:brandid/:wrestlerid', async (req, res, next) => {
+    try{
+        await dbRosters.createNewRoster(req.params.userid, req.params.brandid, req.params.wrestlerid);
+        res.sendStatus(201);
+    }
+    catch(err){
+        next(err)
+    }
+});
 
 module.exports = router
