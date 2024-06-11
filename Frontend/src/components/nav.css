@@ -1,0 +1,58 @@
+.navigation {
+    display: flex;
+    gap: 20px;
+    justify-content: end;
+    padding: 5px;
+    background: #3a3b3a;
+    vertical-align: top ;
+    font-size: larger;
+}
+
+.imglogo {
+    width: 60px;
+}
+
+.imgdiv {
+    position: absolute;
+    left: 1%;    
+}
+
+.container{
+    /*display: grid;*/
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem;
+    overflow: wrap;
+    max-width: 500px;
+    max-height: 400px;
+    align-content: center;
+    align-self: center;
+    aspect-ratio: 16/9;
+  }
+
+  .card{
+    padding: 1rem;
+    background-color: blanchedalmond;
+    border: 3px solid burlywood;
+    justify-content: center;
+    overflow: wrap;
+    text-align: center;
+    align-self: center;
+  }
+
+  .btn{
+    background-color: antiquewhite;
+    padding: 5px;
+    font-size: medium;
+    width: 100px;
+    border-radius: 15px;
+  }
+
+  .wrestlerimg{
+    max-width: 400px;
+    width: 100%;
+    max-height: 600px;
+    aspect-ratio: 16/16;
+  
+  }
