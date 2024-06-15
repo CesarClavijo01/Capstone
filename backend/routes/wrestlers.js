@@ -21,4 +21,41 @@ router.get('/:wrestlerId', async (req, res, next) => {
     res.json(wrestler);
 })
 
+//create a new wrestler
+router.post('/', async (req, res, next) => {
+    //get new wrestler info
+    const { name, bio, picture, rating, category, accomplishments } = req.body
+
+
+    const wrestlerObj = {
+        name: name,
+        bio: bio,
+        picture: picture,
+        rating: rating,
+        category: category,
+        accomplishments: accomplishments
+    }
+
+
+    try{
+        const newWrestler = await dbWrestlers.createNewWrestler(wrestlerObj);
+
+        res.json({
+            name: 'success',
+            message: 'new wrestler created',
+            wrestler: {
+                name: newWrestler.name,
+                bio: newWrestler.bio,
+                picture: newWrestler.picture,
+                rating: newWrestler.rating,
+                category: newWrestler.category,
+                accomplishments: newWrestler.accomplishments
+            }
+        })
+    }
+    catch({ name, message }){
+        next({ name, message })
+    }
+})
+
 module.exports = router

@@ -33,7 +33,48 @@ async function getWrestlerById(wrestlerId){
     }
 }
 
+async function getWrestlerByName(wrestlerName){
+    //Get a wrestler by its name
+    try{
+        const { rows: [wrestler] } = await client.query(`SELECT * From wrestlers 
+        WHERE name=$1`, [wrestlerName]);
+
+        return wrestler
+    }
+    catch(err){
+        throw err
+    }
+}
+
+async function createNewWrestler(wrestlerObj){
+    const SQL = `INSERT INTO wrestlers (name, bio, picture, rating, category, accomplishments) VALUES ($1, $2, $3, $4, $5, $6)`
+
+    try{
+        //Insert a new wrestler into the wrestler table
+        const queriedWrestler = await getWrestlerByName(wrestlerObj.name)
+
+        if(!queriedWrestler){
+            const { rows: [wrestler] } = await client.query(SQL, [wrestlerObj.name, wrestlerObj.bio, wrestlerObj.picture, wrestlerObj.rating, wrestlerObj.category, wrestlerObj.accomplishments])
+
+            console.log('wrestler', wrestler)
+
+            return wrestler
+        }else{
+
+            throw{
+                name: 'existingWrestlerError',
+                message: 'This wrestler already exist'
+            }
+        }
+
+    }
+    catch(err){
+        throw err
+    }
+}
+
 module.exports = { 
     getAllWrestlers,
-    getWrestlerById
+    getWrestlerById,
+    createNewWrestler
  };

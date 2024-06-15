@@ -26,4 +26,47 @@ router.get('/:championshipId', async (req, res, next) => {
     }
 })
 
+//create a new championship
+router.post('/', async (req, res, next) => {
+    const { name, picture, display_picture, info } = req.body
+
+    try{
+        const _championship = await dbChampionships.getChampionshipByName(name);
+
+        const championshipObj = {
+            name: name,
+            picture: picture,
+            display_picture: display_picture,
+            info: info
+        }
+    
+        if(_championship){
+            next({
+                name: 'championshipDuplicate',
+                message: 'This Championship already exixst'
+            })
+        }else{
+    
+            const newChampionship = await dbChampionships.createNewChampionship(championshipObj)
+
+            res.json({
+                name: 'success',
+                message: 'New Championship Created',
+                championship:{
+                    id: newChampionship.id,
+                    name: newChampionship.name,
+                    picture: newChampionship.picture,
+                    display_picture: newChampionship.display_picture,
+                    info: newChampionship.info
+                }
+            })
+        }
+
+    }
+    catch(err){
+        next(err)
+    }
+
+})
+
 module.exports = router

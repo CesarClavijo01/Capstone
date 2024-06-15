@@ -10,6 +10,7 @@ async function createTables(client){
 
 
     await client.query(`DROP TABLE IF EXISTS rosters`);
+    await client.query(`DROP TABLE IF EXISTS user_brands`)
     await client.query(`DROP TABLE IF EXISTS users`);
     await client.query(`DROP TABLE IF EXISTS wrestlers`);
     await client.query(`DROP TABLE IF EXISTS championships`);
@@ -20,7 +21,8 @@ async function createTables(client){
         name VARCHAR(100) not null,
         show_time VARCHAR(100) not null,
         description TEXT not null,
-        logo VARCHAR(255)
+        logo VARCHAR(255),
+        type VARCHAR(50) not null DEFAULT 'user'
     );`);
 
     await client.query(`CREATE TABLE championships(
@@ -52,6 +54,11 @@ async function createTables(client){
         admin BOOLEAN DEFAULT false
     );`)
 
+    await client.query(`CREATE TABLE user_brands(
+        id SERIAL PRIMARY KEY,
+        user_id int REFERENCES users(id) not null,
+        brand_id int REFERENCES brands(id) not null
+    )`)
 
     await client.query(`CREATE TABLE rosters(
         id SERIAL PRIMARY KEY,
@@ -64,15 +71,28 @@ async function createTables(client){
 
 async function seedBrands(client){
     const brands = [
-        {name: 'RAW', show_time: "Monday", description: "A good show", logo: "https://cdn.wrestletalk.com/wp-content/uploads/2022/10/Raw-logo-october-18.jpg"},
+        {name: 'RAW', 
+        show_time: "Monday", 
+        description: "A good show", 
+        logo: "https://cdn.wrestletalk.com/wp-content/uploads/2022/10/Raw-logo-october-18.jpg", 
+        type: "default"
+        },
 
-        {name: 'Smack Down', show_time:'Friday', description: 'Second Show', logo: 'https://featuresofwrestling.com/wp-content/uploads/2021/01/wwe-friday-night-smackdown-logo-scaled-1280x720-1.jpg'},
+        {name: 'Smack Down', 
+        show_time:'Friday', 
+        description: 'Second Show', 
+        logo: 'https://featuresofwrestling.com/wp-content/uploads/2021/01/wwe-friday-night-smackdown-logo-scaled-1280x720-1.jpg', 
+        type: "default"},
 
-        {name: 'NXT', show_time: 'Tueasday', description: 'Developmental', logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmgcwoVO4zlubwnNnJHTfIwpahfNFgA8ymvQ&s'}
+        {name: 'NXT', 
+        show_time: 'Tueasday', 
+        description: 'Developmental', 
+        logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmgcwoVO4zlubwnNnJHTfIwpahfNFgA8ymvQ&s', 
+        type: "default"}
     ];
 
     for(const brand of brands){
-        await client.query(`INSERT INTO brands (name, show_time, description, logo) VALUES ($1, $2, $3, $4)`, [brand.name, brand.show_time, brand.description, brand.logo])
+        await client.query(`INSERT INTO brands (name, show_time, description, logo, type) VALUES ($1, $2, $3, $4, $5)`, [brand.name, brand.show_time, brand.description, brand.logo, brand.type])
     };
 };
 
@@ -184,11 +204,19 @@ async function seedUsers(client){
             username: 'WadeWWE',
             email: 'wadewillson@gmail.com',
             password: 'wrestlingisnotfake'
+        },
+        {
+            first_name: 'John',
+            last_name: 'James',
+            username: 'johnjames3000',
+            email: 'johnjames@gmail.com',
+            password: 'myPassword',
+            admin: true
         }
     ];
 
     for(const user of users){
-        await client.query(`INSERT INTO users(first_name, last_name, username, email, password) VALUES($1, $2, $3, $4, $5)`, [user.first_name, user.last_name, user.username, user.email, user.password])
+        await client.query(`INSERT INTO users(first_name, last_name, username, email, password, admin) VALUES($1, $2, $3, $4, $5, $6)`, [user.first_name, user.last_name, user.username, user.email, user.password, user. admin])
     }
 
 }
