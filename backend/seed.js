@@ -64,11 +64,11 @@ async function createTables(client){
 
 async function seedBrands(client){
     const brands = [
-        {name: 'RAW', show_time: "Monday", description: "A good show", logo: "https://cdn.wrestletalk.com/wp-content/uploads/2022/10/Raw-logo-october-18.jpg"},
+        {name: 'RAW', show_time: "Monday", description: "A good show", logo: "https://1000logos.net/wp-content/uploads/2020/12/WWE-Monday-Night-Raw-Logo.png"},
 
-        {name: 'Smack Down', show_time:'Friday', description: 'Second Show', logo: 'https://featuresofwrestling.com/wp-content/uploads/2021/01/wwe-friday-night-smackdown-logo-scaled-1280x720-1.jpg'},
+        {name: 'Smack Down', show_time:'Friday', description: 'Second Show', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/WWE_SmackDown_%282019%29_Logo.svg/2560px-WWE_SmackDown_%282019%29_Logo.svg.png'},
 
-        {name: 'NXT', show_time: 'Tueasday', description: 'Developmental', logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmgcwoVO4zlubwnNnJHTfIwpahfNFgA8ymvQ&s'}
+        {name: 'NXT', show_time: 'Tueasday', description: 'Developmental', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/WWE_NXT_Logo_%282022%29.svg/2560px-WWE_NXT_Logo_%282022%29.svg.png'}
     ];
 
     for(const brand of brands){
@@ -126,7 +126,7 @@ async function seedWrestlers(client){
         {
             name: 'Drew McIntyre',
             bio: 'Scotish',
-            picture: 'https://www.thesmackdownhotel.com/images/wrestling/wrestlers/full-body/drew-mcintyre.png',
+            picture: 'https://b.fssta.com/uploads/application/wwe/headshots/drew-mcintyre.vresize.350.350.medium.99.png',
             rating: 89,
             category: 'singles, male',
             accomplishments: 'WWE champ',
@@ -135,7 +135,7 @@ async function seedWrestlers(client){
         {
             name: 'Liv Morgan',
             bio: 'Beat Becky Lynch',
-            picture: 'https://www.thesmackdownhotel.com/images/wwe2k24/roster/liv-morgan.png',
+            picture: 'https://b.fssta.com/uploads/application/wwe/headshots/liv-morgan.vresize.350.350.medium.58.png',
             rating: 85,
             category: 'singles, female',
             accomplishments: 'Womens World champ',
@@ -144,7 +144,7 @@ async function seedWrestlers(client){
         {
             name: 'Cody Rhodes',
             bio: 'Dustys son',
-            picture: 'https://www.thesmackdownhotel.com/images/wrestling/wrestlers/c/cody-rhodes-2022-1.png',
+            picture: 'https://b.fssta.com/uploads/application/wwe/headshots/stardust.vresize.350.350.medium.82.png',
             rating: 93,
             category: 'singles, male',
             accomplishments: 'Dustys son',
@@ -153,14 +153,14 @@ async function seedWrestlers(client){
         {
             name: 'LA Knight',
             bio: 'yeah',
-            picture: 'https://www.thesmackdownhotel.com/images/wwe2k23/roster/la-knight.png',
+            picture: 'https://b.fssta.com/uploads/application/wwe/headshots/la-knight.vresize.350.350.medium.20.png',
             rating: 88,
             category: 'singles, male',
         },
         {
             name: 'Trick Williams',
             bio: 'whoop that trick',
-            picture: 'https://www.thesmackdownhotel.com/images/wrestling/wrestlers/t/trick-williams-2021.png',
+            picture: 'https://b.fssta.com/uploads/application/wwe/headshots/trick-williams.vresize.350.350.medium.47.png',
             rating: 78,
             category: 'singles, male',
             accomplishments: 'NXT Champion',
