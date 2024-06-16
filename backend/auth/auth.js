@@ -1,10 +1,12 @@
 const jwt = require('jsonwebtoken');
-const secretKey = 'mysupersecretkey';
+const { JWT_SECRET } = process.env;
 
 async function createToken(userBody){
-    const token = await jwt.sign({ userId: userBody.id }, secretKey, {expiresIn: '1w'});
+    const token = await jwt.sign({ userId: userBody.id }, JWT_SECRET, {expiresIn: '1w'});
     return token
 }
+
+
 
 module.exports = {
     createToken,

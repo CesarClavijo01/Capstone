@@ -29,7 +29,44 @@ async function getChampionshipById(championshipId){
     }
 }
 
+async function getChampionshipByName(championshipName){
+    try{
+        const { rows: [championship] } = await client.query(`
+        SELECT id, name as championshipName, picture, display_picture, info FROM championships
+        WHERE name=$1
+        `, [championshipName]);
+        
+
+        return championship
+    }
+    catch(err){
+        throw new Error(err)
+    }
+}
+
+async function createNewChampionship(championshipBody){
+    try{
+
+        console.log('db championship', championshipBody)
+
+        const { rows: [ championship ] } = await client.query(`
+            INSERT INTO championships (name, picture, display_picture, info) VALUES ($1, $2, $3, $4)
+            RETURNING *;`, [championshipBody.name, championshipBody.picture, championshipBody.display_picture, championshipBody.info]
+        )
+
+        console.log('the championship', championship)
+
+        return championship
+    }
+    
+    catch(err){
+        throw new Error(err)
+    }
+}
+
 module.exports = { 
     getAllChampionships,
-    getChampionshipById
+    getChampionshipById,
+    getChampionshipByName,
+    createNewChampionship
  };
