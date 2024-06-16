@@ -2,23 +2,24 @@
     display: flex;
     gap: 20px;
     justify-content: end;
-    padding: 5px;
+    padding: 20px;
     background: #3a3b3a;
     vertical-align: top ;
     font-size: larger;
 }
 
 .imglogo {
-    width: 60px;
+    width: 50px;
 }
 
 .imgdiv {
     position: absolute;
-    left: 1%;    
+    left: 1%;  
+    top: 1%;  
 }
 
 .container{
-    /*display: grid;*/
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -33,8 +34,8 @@
 
   .card{
     padding: 1rem;
-    background-color: blanchedalmond;
-    border: 3px solid burlywood;
+    background-color: white;
+    border: 3px solid #3a3b3a;
     justify-content: center;
     overflow: wrap;
     text-align: center;
@@ -50,9 +51,81 @@
   }
 
   .wrestlerimg{
-    max-width: 400px;
+    background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/WWE_official_logo.svg/2175px-WWE_official_logo.svg.png) ;
+    background-size: cover;
+    max-width: 250px;
     width: 100%;
     max-height: 600px;
     aspect-ratio: 16/16;
   
   }
+
+  .cardContainer{
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .navlink{
+    /* display: flex; */
+    color: black;
+    align-content: center;
+    text-decoration: none;
+  }
+
+  .brandimg{
+    max-width: 500px;
+    max-height: 600px;
+  }
+
+  .brandCard :hover {zoom: 105%;}
+  /* .card :hover {zoom:105%} */
+
+  .brandCard {
+    align-content: center;
+    gap: 20px;
+    margin-top: 150px;
+    color: white;
+  }
+
+  .brandCardContainer{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 88px;
+    border-top: 20px;
+    position: relative;
+  }
+
+  .singleBrandCard {
+    align-content: center;
+    gap: 20px;
+    margin-top: 150px;
+    color: white;
+    display: block;
+    align-self: center;
+    position: absolute;
+  }
+
+  .Login {
+    color: white;
+    margin: 5px;
+  }
+  .form{
+    position: absolute;
+    align-self: center;
+    font-size: xx-large;
+    display: inline-block;
+    top: 13%;
+    right: 43%;
+    border: solid white, 3px;
+    padding: 50px;
+  }
+
+  .btn2{
+    color: black;
+    right: 33%;
+    background-color: white;
+  }
+
+  .loginh1 {
+    color: white;
+  }
+ 

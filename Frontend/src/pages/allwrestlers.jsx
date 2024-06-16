@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getWrestlers } from "../api/wrestlers";
-import { wrestlerCard } from "../components/wrestlerCard";
+import { WrestlerCard } from "../components/WrestlerCard";
+import "../components/nav.css";
 
 export default function AllWrestlers(){
     const [wrestlers, setWrestlers] = useState([]);
@@ -10,7 +11,8 @@ export default function AllWrestlers(){
         async function renderWrestlers(){
             try{
                 const receivedWrestlers = await getWrestlers();
-                setWrestlers(receivedWrestlers.wrestlers);
+                console.log(receivedWrestlers[0].wrestlername)
+                setWrestlers(receivedWrestlers);
             }
             catch(err){
                 console.error(err)
@@ -20,10 +22,10 @@ export default function AllWrestlers(){
     },[]);
     return(
         <>
-        <div className="grid sm:grid-cols-2 md:grids-cols-3 lg:grid-cols-4 gap-4 px-10">
+        <div className="cardContainer">
             {wrestlers.map((wrestler)=>{
                 return(
-                    <wrestlerCard
+                    <WrestlerCard
                     key={wrestler.id}
                     wrestler={wrestler}
                     />

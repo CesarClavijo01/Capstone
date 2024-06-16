@@ -4,7 +4,7 @@ const baseURL = 'http://localhost:3000';
 
 export async function getWrestlers(){
     try{
-        const response = await fetch(`${baseURL}/wrestlers`);
+        const response = await fetch(`${baseURL}/api/wrestlers`);
         const result= await response.json();
         console.log(result)
         return result;
@@ -17,9 +17,9 @@ export async function getWrestlers(){
 
 //getting single wrestler
 
-export async function getSingleWrestler(){
+export async function getSingleWrestler(id){
     try{
-        const response = await fetch (`${baseURL}/wrestlers/${id}`);
+        const response = await fetch (`${baseURL}/api/wrestlers/${id}`);
         const result = await response.json();
 
         return result;
@@ -29,4 +29,3 @@ export async function getSingleWrestler(){
     }
 }
 
-getWrestlers()
