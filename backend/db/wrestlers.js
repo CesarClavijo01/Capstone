@@ -47,7 +47,7 @@ async function getWrestlerByName(wrestlerName){
 }
 
 async function createNewWrestler(wrestlerObj){
-    const SQL = `INSERT INTO wrestlers (name, bio, picture, rating, category, accomplishments) VALUES ($1, $2, $3, $4, $5, $6)`
+    const SQL = `INSERT INTO wrestlers (name, bio, picture, rating, category, accomplishments) VALUES ($1, $2, $3, $4, $5, $6);`
 
     try{
         //Insert a new wrestler into the wrestler table

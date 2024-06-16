@@ -5,7 +5,6 @@ async function createUser(userBody){
     //hash the password before storing it
     const password = await bcrypt.hash(userBody.password, 5)
     //Insert a new user into the user table
-    // const SQL = `INSERT INTO users (first_name, last_name, username, email, password) VALUES ($1, $2, $3, $4, $5);`;
 
     try{
         const { rows: [ user ] } = await client.query(`INSERT INTO users (first_name, last_name, username, email, password) VALUES ($1, $2, $3, $4, $5)
