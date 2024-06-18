@@ -29,15 +29,17 @@ export async function getSingleWrestler(id){
     }
 }
 
-//post new wrestlers in wrestler table
+//create new wrestlers 
 
-export async function newWrestlers(wrestlersObj) {
+export async function newWrestlers(wrestlersObj, token) {
     try{
+        console.log(token)
         const response = await fetch(`${baseURL}/api/wrestlers`, {
             method: 'post',
             body: JSON.stringify(wrestlersObj),
             headers: {
                 'content-type': 'application/json',
+                Authorization: `Bearer ${token}`
             }
         });
         const newWrestler = await response.json();
