@@ -35,7 +35,6 @@ export async function login(userData) {
           password: userData.password,
         }),
       });
-      console.log(await response.json())
       const result = await response.json();
       console.log(result)
       if (result.token) {

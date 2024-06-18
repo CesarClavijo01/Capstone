@@ -6,9 +6,9 @@ import { UserContext } from "../Context/UserContext";
 import { login } from "../api/users";
 
 
-export default function Login({ setCurrentToken }){
+export default function Login({ setToken }){
 
-    const {setToken} = useContext(UserContext);
+    
 
     const navigate = useNavigate();
     const [email, setEmail] = useState('');
@@ -22,9 +22,9 @@ export default function Login({ setCurrentToken }){
 
     const handleLogin = async (event) => {
         event.preventDefault(event);
-        const token = await login(userObj);
-        if(token){
-          setToken(token)
+        const response = await login(userObj);
+        if(response.token){
+          setToken(response.token)
         navigate('/dashboard');
         }
         }
