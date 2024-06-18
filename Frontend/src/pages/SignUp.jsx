@@ -19,15 +19,23 @@ export default function SignUp (){
 
         console.log('hello 1')
 
-        const payload = await registerUsers( { fname, lname, uname, email, password});
+        const userObj = {
+            first_name: fname,
+            last_name: lname,
+            username: uname,
+            email: email,
+            password: password
+        }
 
-        console.log('hello');
+        const payload = await registerUsers(userObj);
+
+        console.log('hello', payload);
 
         setUser({
-            first_name: payload.user.first_name,
-            last_name: payload.user.last_name,
-            username: payload.user.username,
-            email: payload.user.username,
+            first_name: payload.first_name,
+            last_name: payload.last_name,
+            username: payload.username,
+            email: payload.username,
             token: payload.token,
         });
 

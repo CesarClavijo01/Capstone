@@ -29,3 +29,24 @@ export async function getSingleWrestler(id){
     }
 }
 
+//post new wrestlers in wrestler table
+
+export async function newWrestlers(wrestlersObj) {
+    try{
+        const response = await fetch(`${baseURL}/api/wrestlers`, {
+            method: 'post',
+            body: JSON.stringify(wrestlersObj),
+            headers: {
+                'content-type': 'application/json',
+            }
+        });
+        const newWrestler = await response.json();
+
+        return newWrestler;
+    }
+    catch(err){
+        console.error(err)
+    }
+}
+
+//delete wrestler

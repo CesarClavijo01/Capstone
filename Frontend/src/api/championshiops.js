@@ -27,3 +27,25 @@ export async function getSingleChampionships(id){
         console.error(err)
     }
 }
+
+//create new championship
+
+export async function newChampionships(championshipsObj) {
+    try{
+        const response = await fetch(`${baseURL}/championships`, {
+            method: 'post',
+            body: JSON.stringify(championshipsObj),
+            headers: {
+                'content-type': 'application/json',
+            }
+        });
+        const newChampionship = await response.json();
+
+        return newChampionship;
+    }
+    catch(err){
+        console.error(err)
+    }
+}
+
+//delete championships
