@@ -10,6 +10,8 @@ async function createUser(userBody){
         const { rows: [ user ] } = await client.query(`INSERT INTO users (first_name, last_name, username, email, password) VALUES ($1, $2, $3, $4, $5)
         RETURNING *;`, [userBody.first_name, userBody.last_name, userBody.username, userBody.email, password])
 
+        console.log(user);
+        
         return user
     }
     catch(err){

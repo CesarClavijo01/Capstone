@@ -69,4 +69,27 @@ router.post('/', async (req, res, next) => {
 
 })
 
+router.delete('/:championshipId', async (req, res, next) => {
+    const { championshipId } = req.params;
+
+    try{
+
+        const _championship = await dbChampionships.getChampionshipById(championshipId)
+
+        if(!_championship){
+            next({
+                name: 'noChampionshipError',
+                message: 'Sorry we could not find that championship to delete'
+            })
+        }
+
+        const deletedChampionship = await dbChampionships.removeChampionship(championshipId);
+
+        res.send({success: true});
+    }
+    catch(err){
+        next(err)
+    }
+})
+
 module.exports = router

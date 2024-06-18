@@ -1,11 +1,17 @@
 const express = require('express');
 require('dotenv').config();
 const cors = require('cors')
+const { JWT_SECRET } = process.env;
+const jwt = require('jsonwebtoken');
 
 //routes
 const apiRouter = require('./routes')
+const dbUsers = require('./db/users') 
 
 const app = express();
+
+app.use(cors());
+app.use(express.json());
 
 app.use(async (req, res, next) => {
     const prefix = 'Bearer ';
@@ -18,10 +24,13 @@ app.use(async (req, res, next) => {
       const token = auth.slice(prefix.length);
   
       try {
-        const { id } = jwt.verify(token, JWT_SECRET);
+
+        const { userId } = jwt.verify(token, JWT_SECRET);
+
+        console.log('id is', userId)
   
-        if (id) {
-          req.user = await getUserById(id);
+        if (userId) {
+          req.user = await dbUsers.getUserById(userId);
           next();
         } else {
           next({
@@ -43,14 +52,20 @@ app.use(async (req, res, next) => {
   app.use((req, res, next) => {
     if (req.user) {
       console.log('User is set:');
+      console.log(req.user)
     }
-  
+    
     next();
   });
 
-app.use(cors());
-app.use(express.json());
 app.use('/api', apiRouter);
+
+// error handling middleware
+app.use((error, req, res, next) => {
+  console.error('SERVER ERROR: ', error);
+  if(res.statusCode < 400) res.status(500);
+  res.send({error: error.message, name: error.name, message: error.message, table: error.table});
+});
 
 const port = process.env.PORT || 8080;
 app.listen(port, () => console.log(`listening on port ${port}`));

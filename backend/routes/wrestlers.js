@@ -1,7 +1,9 @@
 const express = require('express');
 const router = express.Router();
 
-const dbWrestlers = require('../db/wrestlers')
+const dbWrestlers = require('../db/wrestlers');
+const auth = require('../auth/auth');
+const dbRosters = require('../db/rosters');
 
 //get all wrestlers
 router.get('/', async (req, res, next) => {
@@ -22,7 +24,7 @@ router.get('/:wrestlerId', async (req, res, next) => {
 })
 
 //create a new wrestler
-router.post('/', async (req, res, next) => {
+router.post('/', auth.requireUser, async (req, res, next) => {
     //get new wrestler info
     const { name, bio, picture, rating, category, accomplishments } = req.body
 
@@ -55,6 +57,35 @@ router.post('/', async (req, res, next) => {
     }
     catch({ name, message }){
         next({ name, message })
+    }
+})
+
+router.delete('/:wrestlerId', async (req, res, next) => {
+    const { wrestlerId } = req.params;
+    try{
+    const wrestlerToRemove = await dbWrestlers.getWrestlerById(wrestlerId)
+
+    if(!wrestlerToRemove){
+        next({
+            name: "WrestlerNotFound",
+            message: "Sorry we were unable to delete that wrestler"
+        })
+    }
+
+    //remove the wrestler from rosters
+
+    const _roster = await dbRosters.getRosterByWrestlerId(wrestlerId);
+    
+    if(_roster){
+        const deleteRoster = await dbRosters.removeRosterByWrestler(wrestlerId);
+    }
+
+    const removedWrestler = await dbWrestlers.removeWrestler(wrestlerId);
+
+    res.send({success: true})
+    }
+    catch(err){
+        next(err)
     }
 })
 

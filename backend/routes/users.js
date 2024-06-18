@@ -22,6 +22,8 @@ router.post('/register', async (req, res, next) => {
    
         const newUser = await dbUsers.createUser(userBody)
 
+        console.log(newUser)
+
         const token = await auth.createToken(newUser)
 
         res.json({
@@ -56,6 +58,8 @@ router.post('/login', async (req, res, next) => {
 
     const { email, password } = req.body;
 
+    console.log(password);
+
     if(!email || !password){
         next({
             name: 'missingCredentialsError',
@@ -65,7 +69,8 @@ router.post('/login', async (req, res, next) => {
 
     try{
         const user = await dbUsers.getUserByUserEmail(email)
-        const match = await bcrypt.compare(password, user[0].password);
+        console.log(user);
+        const match = await bcrypt.compare(password, user.password);
 
         if(user && match){
 

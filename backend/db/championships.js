@@ -64,9 +64,24 @@ async function createNewChampionship(championshipBody){
     }
 }
 
+async function removeChampionship(championshipId){
+    try{
+        const { rows: [ championship ] } = await client.query(`
+            DELETE FROM championships WHERE id=$1
+            `,[championshipId]
+        );
+
+        return championship
+    }
+    catch(err){
+        throw err
+    }
+}
+
 module.exports = { 
     getAllChampionships,
     getChampionshipById,
     getChampionshipByName,
-    createNewChampionship
+    createNewChampionship,
+    removeChampionship
  };

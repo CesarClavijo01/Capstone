@@ -10,6 +10,37 @@ async function createNewRoster(userId, brandId, wrestlerId){
     }
 }
 
+async function removeRosterByWrestler(wrestlerId){
+    try{
+
+        const { rows: [ roster ] } = await client.query(`
+            DELETE FROM rosters WHERE wrestler_id=$1`, [wrestlerId]
+        );
+
+        return roster
+    }
+    catch(err){
+        throw err
+    }
+}
+
+async function getRosterByWrestlerId(wrestlerId){
+    try{
+
+        const { rows: [roster] } = await client.query(`
+            SELECT id, wrestler_id, brand_id FROM rosters WHERE wrestler_id=$1`, [wrestlerId]
+        )
+
+        return roster
+
+    }
+    catch(err){
+        throw err
+    }
+}
+
 module.exports = {
-    createNewRoster
+    createNewRoster,
+    removeRosterByWrestler,
+    getRosterByWrestlerId
 }

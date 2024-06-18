@@ -6,24 +6,18 @@ require('dotenv').config();
 const client = new pg.Client(process.env.DATABASE_URL || '');
 client.connect();
 
+const dbUsers = require('./db/users');
+
 async function createTables(client){
 
-
+    await client.query(`DROP TABLE IF EXISTS user_brands`);
     await client.query(`DROP TABLE IF EXISTS rosters`);
-    await client.query(`DROP TABLE IF EXISTS user_brands`)
+    await client.query(`DROP TABLE IF EXISTS brands`);
     await client.query(`DROP TABLE IF EXISTS users`);
     await client.query(`DROP TABLE IF EXISTS wrestlers`);
     await client.query(`DROP TABLE IF EXISTS championships`);
-    await client.query(`DROP TABLE IF EXISTS brands`);
+  
 
-    await client.query(`CREATE TABLE brands(
-        id SERIAL PRIMARY KEY,
-        name VARCHAR(100) not null,
-        show_time VARCHAR(100) not null,
-        description TEXT not null,
-        logo VARCHAR(255),
-        type VARCHAR(50) not null DEFAULT 'user'
-    );`);
 
     await client.query(`CREATE TABLE championships(
         id SERIAL PRIMARY KEY,
@@ -54,11 +48,15 @@ async function createTables(client){
         admin BOOLEAN DEFAULT false
     );`)
 
-    await client.query(`CREATE TABLE user_brands(
+    await client.query(`CREATE TABLE brands(
         id SERIAL PRIMARY KEY,
-        user_id int REFERENCES users(id) not null,
-        brand_id int REFERENCES brands(id) not null
-    )`)
+        name VARCHAR(100) not null,
+        show_time VARCHAR(100) not null,
+        description TEXT not null,
+        logo VARCHAR(255) not null,
+        is_default BOOLEAN DEFAULT false,
+        user_id int REFERENCES users(id) not null
+    );`);
 
     await client.query(`CREATE TABLE rosters(
         id SERIAL PRIMARY KEY,
@@ -67,35 +65,6 @@ async function createTables(client){
         brand_id int REFERENCES brands(id) not null
     );`)
 
-};
-
-async function seedBrands(client){
-    const brands = [
-
-        {name: 'RAW', 
-        show_time: "Monday", 
-        description: "A good show", 
-        logo: "https://cdn.wrestletalk.com/wp-content/uploads/2022/10/Raw-logo-october-18.jpg", 
-        type: "default"
-        },
-
-        {name: 'Smack Down', 
-        show_time:'Friday', 
-        description: 'Second Show', 
-        logo: 'https://featuresofwrestling.com/wp-content/uploads/2021/01/wwe-friday-night-smackdown-logo-scaled-1280x720-1.jpg', 
-        type: "default"},
-
-        {name: 'NXT', 
-        show_time: 'Tueasday', 
-        description: 'Developmental', 
-        logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmgcwoVO4zlubwnNnJHTfIwpahfNFgA8ymvQ&s', 
-        type: "default"}
-
-    ];
-
-    for(const brand of brands){
-        await client.query(`INSERT INTO brands (name, show_time, description, logo, type) VALUES ($1, $2, $3, $4, $5)`, [brand.name, brand.show_time, brand.description, brand.logo, brand.type])
-    };
 };
 
 async function seedChampionships(client){
@@ -131,6 +100,8 @@ async function seedChampionships(client){
     for(const championship of championships){
         await client.query(`INSERT INTO championships(name, picture, display_picture, info) VALUES($1, $2, $3, $4)`, [championship.name, championship.picture, championship.display_picture, championship.info])
     };
+
+    console.log('finished championships')
 
 }
 
@@ -195,6 +166,8 @@ async function seedWrestlers(client){
         await client.query(`INSERT INTO wrestlers(name, bio, picture, rating, category, accomplishments, championship_id) VALUES($1, $2, $3, $4, $5, $6, $7)`, [wrestler.name, wrestler.bio, wrestler.picture, wrestler.rating, wrestler.category, wrestler.accomplishment, wrestler.championship_id])
     }
 
+    console.log('finished wrestlers')
+
 };
 
 async function seedUsers(client){
@@ -218,10 +191,47 @@ async function seedUsers(client){
     ];
 
     for(const user of users){
-        await client.query(`INSERT INTO users(first_name, last_name, username, email, password, admin) VALUES($1, $2, $3, $4, $5, $6)`, [user.first_name, user.last_name, user.username, user.email, user.password, user. admin])
+        await dbUsers.createUser(user)
     }
 
+    console.log('finished users')
+
 }
+
+async function seedBrands(client){
+    const brands = [
+
+        {name: 'RAW', 
+        show_time: "Monday", 
+        description: "A good show", 
+        logo: "https://cdn.wrestletalk.com/wp-content/uploads/2022/10/Raw-logo-october-18.jpg", 
+        is_default: true,
+        user_id: 1
+        },
+
+        {name: 'Smack Down', 
+        show_time:'Friday', 
+        description: 'Second Show', 
+        logo: 'https://featuresofwrestling.com/wp-content/uploads/2021/01/wwe-friday-night-smackdown-logo-scaled-1280x720-1.jpg', 
+        user_id: 1},
+
+        {name: 'NXT', 
+        show_time: 'Tueasday', 
+        description: 'Developmental', 
+        logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmgcwoVO4zlubwnNnJHTfIwpahfNFgA8ymvQ&s', 
+        is_default: true,
+        user_id: 1
+        }
+
+    ];
+
+    for(const brand of brands){
+        await client.query(`INSERT INTO brands (name, show_time, description, logo, is_default, user_id) VALUES ($1, $2, $3, $4, $5, $6)`, [brand.name, brand.show_time, brand.description, brand.logo, brand.is_default, brand.user_id])
+    };
+
+    console.log('finished brands')
+};
+
 
 async function seedRosters(client){
 
@@ -267,6 +277,8 @@ async function seedRosters(client){
         await client.query(`INSERT INTO rosters(user_id, wrestler_id, brand_id) VALUES($1, $2, $3)`, [roster.user_id, roster.wrestler_id, roster.brand_id])
     }
 
+    console.log('finished rosters')
+
 }
 
 async function seed(){
@@ -274,10 +286,11 @@ async function seed(){
     await createTables(client)
 
     //seed data
-    await seedBrands(client);
+    
     await seedChampionships(client);
     await seedWrestlers(client);
     await seedUsers(client);
+    await seedBrands(client);
     await seedRosters(client);
 }
 
