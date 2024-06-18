@@ -1,18 +1,35 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button, Checkbox, Label, TextInput } from "flowbite-react";
 import "../components/nav.css";
+import { UserContext } from "../Context/UserContext";
+import { login } from "../api/users";
 
 
 export default function Login({ setCurrentToken }){
-    const [username, setUsername]  = useState('')
-    const [password, setPassword] = useState('');
-    const navigate = useNavigate();
 
-    const handleLogin = async () => {
-        const token = await getToken(username, password);
-        setCurrentToken(token);
-        navigate('/dashboard');}
+    const {setToken} = useContext(UserContext);
+
+    const navigate = useNavigate();
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
+    const userObj = {
+      email: email,
+      password: password,
+    };
+    
+
+    const handleLogin = async (event) => {
+        event.preventDefault(event);
+        const token = await login(userObj);
+        if(token){
+          setToken(token)
+        navigate('/dashboard');
+        }
+        }
+
+    
 
     return(
         <>
@@ -22,13 +39,13 @@ export default function Login({ setCurrentToken }){
         <div>
           <Label htmlFor="email2" value="User Email"/>
         </div>
-        <TextInput id='email2' className="text" type="email" placeholder="email" required shadow />
+        <TextInput value={email} onChange={(event)=> setEmail(event.target.value)} id='email2' className="text"  type="email" placeholder="email" required shadow />
       </div>
       <div className="Login">
         <div>
           <Label  htmlFor="password2" value="Password" />
         </div>
-        <TextInput id='password2' type="Password" placeholder="password" required shadow />
+        <TextInput value={password} onChange={(event)=> setPassword(event.target.value)} id='password2' type="Password" placeholder="password" required shadow />
       </div>
       
       <Button className="btn2" onClick={handleLogin} type="submit">Log-in</Button>
