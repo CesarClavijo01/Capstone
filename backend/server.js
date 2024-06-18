@@ -26,8 +26,6 @@ app.use(async (req, res, next) => {
       try {
 
         const { userId } = jwt.verify(token, JWT_SECRET);
-
-        console.log('id is', userId)
   
         if (userId) {
           req.user = await dbUsers.getUserById(userId);
@@ -52,7 +50,6 @@ app.use(async (req, res, next) => {
   app.use((req, res, next) => {
     if (req.user) {
       console.log('User is set:');
-      console.log(req.user)
     }
     
     next();

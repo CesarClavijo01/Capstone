@@ -7,11 +7,11 @@ async function createUser(userBody){
     //Insert a new user into the user table
 
     try{
-        const { rows: [ user ] } = await client.query(`INSERT INTO users (first_name, last_name, username, email, password) VALUES ($1, $2, $3, $4, $5)
-        RETURNING *;`, [userBody.first_name, userBody.last_name, userBody.username, userBody.email, password])
+        const { rows: [ user ] } = await client.query(`INSERT INTO users (first_name, last_name, username, email, password, admin) VALUES ($1, $2, $3, $4, $5, $6)
+        RETURNING *;`, [userBody.first_name, userBody.last_name, userBody.username, userBody.email, password, userBody.admin])
 
-        console.log(user);
-        
+        console.log('user is', user);
+
         return user
     }
     catch(err){
@@ -40,13 +40,6 @@ async function getUserByUserEmail(userEmail){
             WHERE email=$1
         `, [userEmail]);
 
-        if(!user){
-            throw{
-                name: 'UserNotFound',
-                message: 'Sorry, That user does not exist'
-            }
-        }
-
         return user
     }
     catch(err){
@@ -73,11 +66,30 @@ async function getUserById(userId) {
     } catch (error) {
       throw error;
     }
-  }
+}
+
+async function getUserByUsername(username){
+    try{
+        const { rows: [user] } = await client.query(`
+            SELECT id, first_name, last_name, username, email, password, admin FROM users
+            WHERE username=$1`, [username]
+        )
+
+        return user
+    }
+    catch(err){
+        throw err
+    }
+}
+
+async function updateAdmin(){
+    
+}
 
 module.exports = {
     createUser,
     getAllUsers,
     getUserByUserEmail,
-    getUserById
+    getUserById,
+    getUserByUsername
 }

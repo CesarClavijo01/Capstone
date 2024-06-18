@@ -8,17 +8,36 @@ const auth = require('../auth/auth')
 router.post('/register', async (req, res, next) => {
     //post a new user
 
-    const { first_name, last_name, username, email, password } = req.body
+    const { first_name, last_name, username, email, password, admin } = req.body
 
     const userBody = {
         first_name: first_name,
         last_name: last_name,
         username: username,
         email: email,
-        password: password
+        password: password,
+        admin: admin
     }
 
     try{
+
+        const _username = await dbUsers.getUserByUsername(username)
+
+        if(_username){
+            next({
+                name: 'ExistingUsername',
+                message: 'That username already exixts. Please try a new one'
+            })
+        }
+
+        const _email = await dbUsers.getUserByUserEmail(email)
+
+        if(_email){
+            next({
+                name: 'emailAlreadyInUse',
+                message: 'That email is already being used, please try a different one'
+            })
+        }
    
         const newUser = await dbUsers.createUser(userBody)
 
@@ -43,7 +62,7 @@ router.post('/register', async (req, res, next) => {
     }
 });
 
-router.get('/', async (req, res, next) => {
+router.get('/', auth.requireAdmin, async (req, res, next) => {
     try{
         const users = await dbUsers.getAllUsers();
 
@@ -69,7 +88,14 @@ router.post('/login', async (req, res, next) => {
 
     try{
         const user = await dbUsers.getUserByUserEmail(email)
-        console.log(user);
+
+        if(!user){
+            next({
+                name: 'userNotFound',
+                message: 'Sorry we could not find that user'
+            })
+        }
+        
         const match = await bcrypt.compare(password, user.password);
 
         if(user && match){

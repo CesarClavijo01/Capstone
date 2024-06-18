@@ -24,7 +24,7 @@ router.get('/:wrestlerId', async (req, res, next) => {
 })
 
 //create a new wrestler
-router.post('/', auth.requireUser, async (req, res, next) => {
+router.post('/', auth.requireAdmin, async (req, res, next) => {
     //get new wrestler info
     const { name, bio, picture, rating, category, accomplishments } = req.body
 
@@ -60,7 +60,7 @@ router.post('/', auth.requireUser, async (req, res, next) => {
     }
 })
 
-router.delete('/:wrestlerId', async (req, res, next) => {
+router.delete('/:wrestlerId', auth.requireAdmin, async (req, res, next) => {
     const { wrestlerId } = req.params;
     try{
     const wrestlerToRemove = await dbWrestlers.getWrestlerById(wrestlerId)

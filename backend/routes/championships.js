@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
 
-const dbChampionships = require('../db/championships')
+const dbChampionships = require('../db/championships');
+const auth = require('../auth/auth');
 
 //get all championships
 router.get('/', async (req, res, next) => {
@@ -27,7 +28,7 @@ router.get('/:championshipId', async (req, res, next) => {
 })
 
 //create a new championship
-router.post('/', async (req, res, next) => {
+router.post('/', auth.requireAdmin, async (req, res, next) => {
     const { name, picture, display_picture, info } = req.body
 
     try{
@@ -69,7 +70,7 @@ router.post('/', async (req, res, next) => {
 
 })
 
-router.delete('/:championshipId', async (req, res, next) => {
+router.delete('/:championshipId', auth.requireAdmin, async (req, res, next) => {
     const { championshipId } = req.params;
 
     try{

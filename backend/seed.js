@@ -212,7 +212,8 @@ async function seedBrands(client){
         {name: 'Smack Down', 
         show_time:'Friday', 
         description: 'Second Show', 
-        logo: 'https://featuresofwrestling.com/wp-content/uploads/2021/01/wwe-friday-night-smackdown-logo-scaled-1280x720-1.jpg', 
+        logo: 'https://featuresofwrestling.com/wp-content/uploads/2021/01/wwe-friday-night-smackdown-logo-scaled-1280x720-1.jpg',
+        is_default: true, 
         user_id: 1},
 
         {name: 'NXT', 
