@@ -39,15 +39,7 @@ async function getRosterByWrestlerId(wrestlerId){
     }
 }
 
-async function getAllRosters(){
-    try{
-        const result = await client.query(`
-            SELECT rosters.id as id, wrestlers.name as wrestlerName, wrestlers.bio as bio, wrestlers.picture as wrestlerPicture, wrestlers.rating as rating, wrestlers.category as category, wrestlers.accomplishments as accomplishments, `)
-    }
-    catch(err){
-        throw err
-    }
-}
+
 
 async function getRosterByBrand(brandId){
     try{
@@ -66,12 +58,15 @@ async function getRosterByBrand(brandId){
 
 async function getRosterByUserId(userId){
     try{
-        const { rows: [ roster] } = await client.query(`
-            SELECT id, user_id, wrestler_id, brand_id FROM rosters
-            WHERE user_id=$1`, [userId]
-        );
+        const { rows:[ roster ] } = await client.query(`
+            SELECT rosters.id as id, wrestlers.name as wrestlerName, wrestlers.bio as bio, wrestlers.picture as wrestlerPicture, wrestlers.rating as rating, wrestlers.category as category, wrestlers.accomplishments as accomplishments, championships.name as championshipName, championships.picture as championshipPicture, championships.display_picture as championshipDisplayPicture, brands.name as brandName, brands.logo as logo, brands.is_default as isDefault, rosters.user_id as userId 
+            FROM rosters
+            left JOIN wrestlers on wrestlers.id=rosters.wrestler_id 
+            left JOIN championships on championships.id=wrestlers.championship_id
+            left JOIN brands on brands.id=rosters.brand_id
+            WHERE rosters.user_id=$1`, [userId])
 
-        return roster
+            return roster 
     }
     catch(err){
         throw err
@@ -97,5 +92,6 @@ module.exports = {
     getRosterByWrestlerId, 
     getRosterByBrand,
     getRosterByUserId,
-    removeRoster
+    removeRoster,
+    
 }
