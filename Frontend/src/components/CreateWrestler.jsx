@@ -70,7 +70,7 @@ export default function CreateWrestler({token}){
                 <div className="Login">
                     <Label htmlFor="accomplishments" value="Accomplishments" />
                 </div>
-                    <TextInput id="accomplishments" type="accomplishments" value={ accomplishments } placeholder="accomplishmentsy" required shadow onChange={(evt) => setAccomplishments(evt.target.value)} />
+                    <TextInput id="accomplishments" type="accomplishments" value={ accomplishments } placeholder="accomplishments" required shadow onChange={(evt) => setAccomplishments(evt.target.value)} />
             </div>
                 <Button  onClick={ newWrestler }  className="btn2" type="submit">Create new wrestler</Button>
         </form>
