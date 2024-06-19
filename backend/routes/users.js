@@ -120,4 +120,30 @@ router.post('/login', async (req, res, next) => {
     }
 
 })
+
+router.patch('/:userId', auth.requireAdmin, async(req, res, next) => {
+    try{
+        //get the id from params
+        const { userId } = req.params;
+        //find the user
+        const _user = await dbUsers.getUserById(userId);
+
+        if(!_user){
+            next({
+                name: 'noUserError',
+                message: 'That user does not exist'
+            })
+        }
+
+        const newAdmin = await dbUsers.updateAdmin(userId)
+
+        res.json({
+            name: 'success',
+            message: 'New admin created'
+        })
+    }
+    catch{
+
+    }
+})
 module.exports = router

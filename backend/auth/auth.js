@@ -24,7 +24,7 @@ function requireUser(req, res, next){
 
 function requireAdmin(req, res, next){
 
-    if(!req.user.admin){
+    if(!req.user || !req.user.admin){
         res.status(401);
 
         next({

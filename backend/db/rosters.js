@@ -2,8 +2,11 @@ const client = require('./index')
 
 async function createNewRoster(userId, brandId, wrestlerId){
     try{
-        const SQL = `INSERT INTO rosters (user_id, brand_id, wrestler_id) VALUES ($1, $2, $3)`;
-        await client.query(SQL, [userId, brandId, wrestlerId]);
+        const SQL = `INSERT INTO rosters (user_id, brand_id, wrestler_id) VALUES ($1, $2, $3)
+        RETURNING *`;
+        const result = await client.query(SQL, [userId, brandId, wrestlerId]);
+
+        return result.rows
     }
     catch(err){
         throw err
@@ -28,7 +31,7 @@ async function getRosterByWrestlerId(wrestlerId){
     try{
 
         const { rows: [roster] } = await client.query(`
-            SELECT id, wrestler_id, brand_id FROM rosters WHERE wrestler_id=$1`, [wrestlerId]
+            SELECT id, wrestler_id, brand_id, user_id FROM rosters WHERE wrestler_id=$1`, [wrestlerId]
         )
 
         return roster
@@ -56,17 +59,17 @@ async function getRosterByBrand(brandId){
     }
 }
 
-async function getRosterByUserId(userId){
+async function getRostersByUserId(userId){
     try{
-        const { rows:[ roster ] } = await client.query(`
-            SELECT rosters.id as id, wrestlers.name as wrestlerName, wrestlers.bio as bio, wrestlers.picture as wrestlerPicture, wrestlers.rating as rating, wrestlers.category as category, wrestlers.accomplishments as accomplishments, championships.name as championshipName, championships.picture as championshipPicture, championships.display_picture as championshipDisplayPicture, brands.name as brandName, brands.logo as logo, brands.is_default as isDefault, rosters.user_id as userId 
+        const result = await client.query(`
+            SELECT rosters.id as id, wrestlers.id as wrestler_id, wrestlers.name as wrestlerName, wrestlers.bio as bio, wrestlers.picture as wrestlerPicture, wrestlers.rating as rating, wrestlers.category as category, wrestlers.accomplishments as accomplishments, championships.name as championshipName, championships.picture as championshipPicture, championships.display_picture as championshipDisplayPicture, brands.name as brandName, brands.logo as logo, brands.is_default as isDefault, rosters.user_id as userId 
             FROM rosters
             left JOIN wrestlers on wrestlers.id=rosters.wrestler_id 
             left JOIN championships on championships.id=wrestlers.championship_id
             left JOIN brands on brands.id=rosters.brand_id
             WHERE rosters.user_id=$1`, [userId])
 
-            return roster 
+            return result.rows 
     }
     catch(err){
         throw err
@@ -86,12 +89,43 @@ async function removeRoster(rosterId){
     }
 }
 
+async function updateRoster(wrestlerId, brandId){
+    try{
+        const { rows: [ roster ] } = await client.query(`
+            UPDATE rosters
+            SET brand_id=$1
+            WHERE wrestler_id=$2
+            RETURNING *;`, [brandId, wrestlerId]
+        )
+
+        return roster
+    }
+    catch(err){
+        throw err
+    }
+}
+
+async function getRosterByUserId(userId){
+    try{
+        const { rows: [ roster ] } = await client.query(`
+            SELECT id as roster_id, wrestler_id, brand_id, user_id FROM rosters
+            WHERE brand_id=$1`, [userId]
+        );
+
+        return roster
+    }
+    catch(err){
+        throw err
+    }
+}
+
 module.exports = {
     createNewRoster,
     removeRosterByWrestler,
     getRosterByWrestlerId, 
     getRosterByBrand,
-    getRosterByUserId,
+    getRostersByUserId,
     removeRoster,
-    
+    updateRoster,
+    getRosterByUserId
 }

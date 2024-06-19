@@ -82,8 +82,21 @@ async function getUserByUsername(username){
     }
 }
 
-async function updateAdmin(){
-    
+async function updateAdmin(userId){
+
+    try{
+        const { rows: [ user ] } = await client.query(`
+            UPDATE users
+            SET admin=true
+            WHERE id=$1
+            RETURNING *;`,[userId]
+        )
+
+        return user
+    }
+    catch(err){
+        throw err
+    }
 }
 
 module.exports = {
@@ -91,5 +104,6 @@ module.exports = {
     getAllUsers,
     getUserByUserEmail,
     getUserById,
-    getUserByUsername
+    getUserByUsername,
+    updateAdmin
 }

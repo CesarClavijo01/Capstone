@@ -87,9 +87,46 @@ async function removeWrestler(wrestlerId){
     }
 }
 
+async function updateWrestlerChampionship(wrestlerId, championshipId){
+
+    try{
+        
+        const { rows: [ wrestler ] } = await client.query(`
+            UPDATE wrestlers
+            SET championship_id=$1
+            WHERE id=$2
+            RETURNING *;`, [championshipId, wrestlerId]
+        ) 
+        
+        return wrestler
+    }
+    catch(err){
+        throw err
+    }
+}
+
+async function removeChampionship(wrestlerId){
+    try{
+
+        const { rows: [ wrestler ] } = await client.query(`
+            UPDATE wrestlers
+            SET championship_id=null
+            WHERE id=$1
+            RETURNING *;`, [wrestlerId]
+        )
+
+        return wrestler
+    }
+    catch(err){
+        throw err
+    }
+}
+
 module.exports = { 
     getAllWrestlers,
     getWrestlerById,
     createNewWrestler,
-    removeWrestler
+    removeWrestler,
+    updateWrestlerChampionship,
+    removeChampionship
  };
