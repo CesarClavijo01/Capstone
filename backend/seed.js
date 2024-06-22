@@ -8,6 +8,7 @@ client.connect();
 
 const dbUsers = require('./db/users');
 
+
 async function createTables(client){
 
     await client.query(`DROP TABLE IF EXISTS user_brands`);
@@ -31,7 +32,7 @@ async function createTables(client){
         id SERIAL PRIMARY KEY,
         name VARCHAR(100) not null,
         bio TEXT not null,
-        picture VARCHAR(255) not null,
+        picture TEXT not null,
         rating INT not null,
         category VARCHAR(100) not null,
         accomplishments TEXT,
@@ -446,6 +447,14 @@ async function seedWrestlers(client){
             rating: 74,
             category: 'tag-team, male',
             accomplishments: 'SmackDown tag-team champion, WWE tag-team champion',           
+        },
+        {
+            name: 'Paul Sherer',
+            bio: 'Wolfy Master',
+            picture: 'https://mail.google.com/mail/u/0?ui=2&ik=f4fd21daa1&attid=0.1&permmsgid=msg-a:r-4903430058338878212&th=19041b934d6c3ae7&view=fimg&fur=ip&sz=s0-l75-ft&attbid=ANGjdJ8PDS0D7EQu-FIdh0GTcwiZ2e7CR4aTfYQVhicM_xdKrYzqFuDrwr-4yB4JzxDNNmdEChw6CXmkcd6GYUqBeAfsYbqhlpUGQzrOrtSMeHSemJDOZNB6JGeJyrE&disp=emb&realattid=19041b919a03e11d5bb1',
+            rating: 98,
+            category: 'singles, male',
+            accomplishments: 'Fullstack Champion of the world',            
         },
     ];
 
