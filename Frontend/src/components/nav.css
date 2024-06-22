@@ -23,13 +23,14 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 1rem;
+    margin: 2%;
     overflow: wrap;
-    max-width: 500px;
-    max-height: 400px;
+    max-width: 20%;
+    max-height: 30%;
     align-content: center;
     align-self: center;
     aspect-ratio: 16/9;
+    margin-top: 1%;
   }
 
   .card{
@@ -78,8 +79,9 @@
   .cardContainer{
     display: flex;
     flex-wrap: wrap;
-    padding-left: 11rem;
-    
+    padding: 5rem;
+    padding-top: 2rem;
+    padding-left: 8%;
   }
   .navlink{
     /* display: flex; */
