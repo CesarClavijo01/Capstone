@@ -25,6 +25,7 @@ function App() {
         <Route path='/brands' element={<AllBrands/>}></Route>
         <Route path='/api/brands/:brandId' element={<SingleBrand/>} ></Route>
         <Route path='/Signup' element={<SignUp/>}></Route>
+        
         <Route path='/create' element={<CreateWrestler setWrestler={setWrestler} werstler={wrestler} token={token}/>}></Route>
       </Routes>
       

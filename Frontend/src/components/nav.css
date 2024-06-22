@@ -78,7 +78,7 @@
   .cardContainer{
     display: flex;
     flex-wrap: wrap;
-    padding-left: 5%;
+    padding-left: 11rem;
     
   }
   .navlink{
