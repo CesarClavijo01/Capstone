@@ -39,7 +39,7 @@ export async function newWrestlers(wrestlersObj, token) {
             body: JSON.stringify(wrestlersObj),
             headers: {
                 'content-type': 'application/json',
-                Authorization: `Bearer ${token}`
+                Authorization: `Bearer ${token}`,
             }
         });
         const newWrestler = await response.json();

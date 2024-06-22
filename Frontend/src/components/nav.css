@@ -3,7 +3,7 @@
     gap: 20px;
     justify-content: end;
     padding: 20px;
-    background: #3a3b3a;
+    background: #1d1d1d;
     vertical-align: top ;
     font-size: larger;
 }
@@ -34,7 +34,7 @@
 
   .card{
     padding: 1rem;
-    background-color: white;
+    background-color: #1d1d1d;
     border: 3px solid #3a3b3a;
     justify-content: center;
     overflow: wrap;
@@ -53,20 +53,36 @@
   .wrestlerimg{
     background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/WWE_official_logo.svg/2175px-WWE_official_logo.svg.png) ;
     background-size: cover;
-    max-width: 250px;
+    max-width: 267px;
+    min-width: 267px;
     width: 100%;
     max-height: 600px;
     aspect-ratio: 16/16;
   
   }
 
+  .wrestlerH1{
+    font-size: x-large;
+    font-weight: bold;
+    background-color: #1d1d1d;
+    color: white;
+  }
+
+  .ratingH2{
+    font-size: large;
+    font-weight: unset;
+    background-color: #1d1d1d;
+    color: white;
+  }
+
   .cardContainer{
     display: flex;
     flex-wrap: wrap;
+    
   }
   .navlink{
     /* display: flex; */
-    color: black;
+    color: white;
     align-content: center;
     text-decoration: none;
   }
@@ -116,6 +132,17 @@
     top: 13%;
     right: 43%;
     border: solid white, 3px;
+    padding: 50px;
+  }
+  .createform{
+    position: relative;
+    align-self: center;
+    font-size: xx-large;
+    display: inline-block;
+    top: 13%;
+    left:30%;
+    margin: 30px;
+    border: 3px;
     padding: 50px;
   }
 

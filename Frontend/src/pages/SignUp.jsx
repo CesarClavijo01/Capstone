@@ -39,7 +39,7 @@ export default function SignUp (){
             token: payload.token,
         });
 
-        navigate('/');
+        navigate('/dashboard');
     }
 
     return(

@@ -11,7 +11,6 @@ export default function AllBrands(){
         async function renderBrands(){
             try{
                 const receivedBrands = await getBrands();
-                console.log(receivedBrands[0].name)
                 setBrands(receivedBrands);
             }
             catch(err){

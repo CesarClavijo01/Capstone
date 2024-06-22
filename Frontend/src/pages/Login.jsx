@@ -4,12 +4,13 @@ import { Button, Checkbox, Label, TextInput } from "flowbite-react";
 import "../components/nav.css";
 import { UserContext } from "../Context/UserContext";
 import { login } from "../api/users";
+import AuthContext from "../Context/AuhtContext";
 
 
-export default function Login({ setToken }){
+export default function Login(){
 
     
-
+    const { setToken } = useContext(AuthContext)
     const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -25,7 +26,7 @@ export default function Login({ setToken }){
         const response = await login(userObj);
         if(response.token){
           setToken(response.token)
-        navigate('/dashboard');
+        navigate('/create');
         }
         }
 

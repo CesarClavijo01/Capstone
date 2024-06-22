@@ -30,13 +30,14 @@ export async function getSingleChampionships(id){
 
 //create new championship
 
-export async function newChampionships(championshipsObj) {
+export async function newChampionships(championshipsObj, token) {
     try{
         const response = await fetch(`${baseURL}/championships`, {
             method: 'post',
             body: JSON.stringify(championshipsObj),
             headers: {
                 'content-type': 'application/json',
+                Authorization: `Bearer ${token}`,
             }
         });
         const newChampionship = await response.json();
