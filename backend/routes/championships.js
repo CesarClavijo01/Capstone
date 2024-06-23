@@ -47,6 +47,13 @@ router.post('/', auth.requireAdmin, async (req, res, next) => {
                 message: 'This Championship already exixst'
             })
         }else{
+
+            if(!name || !picture || !display_picture || !info){
+                next({
+                    name: 'MissingFields',
+                    message: 'Please fill out all fields'
+                })
+            }
     
             const newChampionship = await dbChampionships.createNewChampionship(championshipObj)
 

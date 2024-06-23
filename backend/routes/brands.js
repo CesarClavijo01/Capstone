@@ -45,6 +45,13 @@ router.post('/', auth.requireUser, async (req, res, next) => {
 
 
     try{
+
+        if(!name || !show_time || !description || !logo){
+            next({
+                name: 'MissingFields',
+                message: 'Please fill out all fields'
+            })
+        }
         const newBrand = await dbBrands.createNewBrand(brandObj, id)
 
         if(!newBrand){

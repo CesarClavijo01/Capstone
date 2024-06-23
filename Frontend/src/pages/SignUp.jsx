@@ -13,6 +13,7 @@ export default function SignUp (){
     const [password, setPassword] = useState('');
     const { setUser } = useContext(UserContext);
     const navigate = useNavigate();
+    const [error, setError] = useState('');
 
     async function newUser(evt) {
         evt.preventDefault();
@@ -39,7 +40,15 @@ export default function SignUp (){
             token: payload.token,
         });
 
-        navigate('/login');
+        if(!payload.token){
+            setError(await payload.message);
+            console.log('error', payload.message)
+            alert(payload.message);
+        }else{
+            navigate('/login');
+        }
+
+        
     }
 
     return(
