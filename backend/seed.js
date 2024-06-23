@@ -87,7 +87,7 @@ async function seedChampionships(client){
         {
             name: 'Womens World Championship',
             picture: 'https://i.ytimg.com/vi/mIp5O6NXKzo/maxresdefault.jpg',
-            display_picture: 'https://www.wwe.com/f/styles/og_image/public/all/2023/06/TITLE_04212023gd_0006_Fin--39727c5972135200bd8983992c1424e3.png',
+            display_picture: 'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e6f66cc8-71d2-40ad-a546-85302e2a3d40/dg9359v-4354d34a-cbe9-4f54-8fb7-59998bd9522f.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2U2ZjY2Y2M4LTcxZDItNDBhZC1hNTQ2LTg1MzAyZTJhM2Q0MFwvZGc5MzU5di00MzU0ZDM0YS1jYmU5LTRmNTQtOGZiNy01OTk5OGJkOTUyMmYucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.GHDLMVjjD6WP6KmEwHe6EkGjwfz9Xtrb_tZJfFd1uyE',
             info: 'World Championship'
         },
         {
@@ -141,7 +141,7 @@ async function seedChampionships(client){
         {
             name: 'Intercontinental Championship',
             picture: 'https://cdn3.whatculture.com/images/2019/11/ad9596b87960b84d-600x338.jpg',
-            display_picture: 'https://upload.wikimedia.org/wikipedia/en/b/b8/WWE_Intercontinental_Championship_2019.png',
+            display_picture: 'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/44e69913-e0f8-4bb1-bc4f-dd196e530ead/de6jgjz-69f098fb-a4e6-49a9-8afa-3d4a90d0cd1f.png/v1/fill/w_1280,h_721/new_intercontinental_championship_png__by_kayfabeftw_de6jgjz-fullview.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NzIxIiwicGF0aCI6IlwvZlwvNDRlNjk5MTMtZTBmOC00YmIxLWJjNGYtZGQxOTZlNTMwZWFkXC9kZTZqZ2p6LTY5ZjA5OGZiLWE0ZTYtNDlhOS04YWZhLTNkNGE5MGQwY2QxZi5wbmciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.8qNmrp5KqTe3kIJoyKVIb9LSJ53OQT5ZjgCoOoye-Ds',
             info: 'Intercontinental Champ'
         },
         {
@@ -451,6 +451,15 @@ async function seedWrestlers(client){
             championship_id: 8,           
         },
         {
+            name: 'Kelani Jordan',
+            bio: 'Next Generation',
+            picture: 'https://b.fssta.com/uploads/application/wwe/headshots/kelani-jordan.vresize.350.350.medium.76.png',
+            rating: 70,
+            category: 'singles, female',
+            accomplishments: 'NXT North American womens champion', 
+            championship_id: 14,           
+        },
+        {
             name: 'Logan Paul',
             bio: 'Internet Sensation',
             picture: 'https://b.fssta.com/uploads/application/wwe/headshots/logan-paul.vresize.220.220.medium.66.png',
@@ -467,6 +476,15 @@ async function seedWrestlers(client){
             category: 'singles, male',
             accomplishments: 'NXT North American champion, 2024 NXT Mens Breakout winner', 
             championship_id: 7,          
+        },
+        {
+            name: 'Roxanne Perez',
+            bio: 'The Prodigy',
+            picture: 'https://b.fssta.com/uploads/application/wwe/headshots/roxanne-perez.vresize.350.350.medium.64.png',
+            rating: 78,
+            category: 'singles, female',
+            accomplishments: 'NXT womens Champion, NXT womens tag-team champion, Womens Breackout Tournament winner (first ever)', 
+            championship_id: 6,          
         },
         {
             name: 'Zami Zayn',

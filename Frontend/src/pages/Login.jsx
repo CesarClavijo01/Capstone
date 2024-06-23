@@ -33,7 +33,7 @@ export default function Login(){
           setError(response.message);
           console.log(error)
         }else{
-        navigate('/create');
+        navigate('/dashboard');
         }
         }
 
