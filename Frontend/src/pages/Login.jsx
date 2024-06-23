@@ -5,13 +5,14 @@ import "../components/nav.css";
 import { UserContext } from "../Context/UserContext";
 import { login } from "../api/users";
 import AuthContext from "../Context/AuhtContext";
+import { AdminContext } from "../Context/AdminContext";
 
 
 
 export default function Login(){
 
     
-    
+    const { setAdmin } = useContext(AdminContext)
     const { setToken } = useContext(AuthContext)
     const navigate = useNavigate();
     const [email, setEmail] = useState('');
@@ -33,10 +34,10 @@ export default function Login(){
         
         if(!response.token){
           setError(response.message);
-          alert(error)
+          alert(response.message);
         }else{
           
-          
+          setAdmin(response.user.admin);
           navigate('/dashboard');
         }
         }

@@ -9,6 +9,7 @@ import { AdminProvider } from './Context/AdminContext.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
+    <AdminProvider>
     <AuthProvider>
     <UserProvider>
       <BrowserRouter>
@@ -16,6 +17,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       </BrowserRouter>
     </UserProvider>
     </AuthProvider>
+    </AdminProvider>
   </React.StrictMode>
   ,
 )

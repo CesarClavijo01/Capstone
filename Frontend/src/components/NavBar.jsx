@@ -5,12 +5,14 @@ import {useContext} from 'react';
 import { useAuthStatus } from '../hooks/useAuthStatus';
 import AuthContext from '../Context/AuhtContext';
 import { useNavigate } from 'react-router-dom';
+import { AdminContext } from '../Context/AdminContext';
 
 
 export default function NavBar() {
     const { setToken } = useContext(AuthContext);
     const { loggedIn } = useAuthStatus();
     const navigate = useNavigate();
+    const { admin } = useContext(AdminContext);
 
     async function handleClick() {
         await localStorage.removeItem('token');
@@ -26,12 +28,13 @@ export default function NavBar() {
             </div>
                     {loggedIn ? (
                         <>
+                        {admin &&
                         <Link
                         to='/create'
                         className="navlink"
                        >
                        Create
-                       </Link>
+                       </Link>}
                         <Link
                         to='/brands'
                         className="navlink"

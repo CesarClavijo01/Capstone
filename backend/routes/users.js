@@ -153,4 +153,26 @@ router.patch('/:userId', auth.requireAdmin, async(req, res, next) => {
 
     }
 })
+
+router.get('/me', auth.requireUser, async (req, res, mext) => {
+    const { id } = req.user;
+
+    try{
+        const user = await dbUsers.getUserById(id)
+        if(!user){
+            next({
+                name:'UserNotFound',
+                message: 'This User does not exist'
+            })
+        }else{
+            res.send({
+                name: 'success',
+                user: user
+            })
+        }
+    }
+    catch(err){
+        next(err)
+    }
+})
 module.exports = router

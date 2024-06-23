@@ -39,6 +39,7 @@ export async function login(userData) {
       console.log('result', result)
       if (result.token) {
         localStorage.setItem('token', JSON.stringify(result.token));
+        localStorage.setItem('admin', JSON.stringify(result.user.admin))
       }
       return result;
     } catch (error) {

@@ -141,7 +141,7 @@ async function seedChampionships(client){
         {
             name: 'Intercontinental Championship',
             picture: 'https://cdn3.whatculture.com/images/2019/11/ad9596b87960b84d-600x338.jpg',
-            display_picture: 'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/44e69913-e0f8-4bb1-bc4f-dd196e530ead/de6jgjz-69f098fb-a4e6-49a9-8afa-3d4a90d0cd1f.png/v1/fill/w_1280,h_721/new_intercontinental_championship_png__by_kayfabeftw_de6jgjz-fullview.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NzIxIiwicGF0aCI6IlwvZlwvNDRlNjk5MTMtZTBmOC00YmIxLWJjNGYtZGQxOTZlNTMwZWFkXC9kZTZqZ2p6LTY5ZjA5OGZiLWE0ZTYtNDlhOS04YWZhLTNkNGE5MGQwY2QxZi5wbmciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.8qNmrp5KqTe3kIJoyKVIb9LSJ53OQT5ZjgCoOoye-Ds',
+            display_picture: 'https://upload.wikimedia.org/wikipedia/en/b/b8/WWE_Intercontinental_Championship_2019.png',
             info: 'Intercontinental Champ'
         },
         {
@@ -451,15 +451,6 @@ async function seedWrestlers(client){
             championship_id: 8,           
         },
         {
-            name: 'Kelani Jordan',
-            bio: 'Next Generation',
-            picture: 'https://b.fssta.com/uploads/application/wwe/headshots/kelani-jordan.vresize.350.350.medium.76.png',
-            rating: 70,
-            category: 'singles, female',
-            accomplishments: 'NXT North American womens champion', 
-            championship_id: 14,           
-        },
-        {
             name: 'Logan Paul',
             bio: 'Internet Sensation',
             picture: 'https://b.fssta.com/uploads/application/wwe/headshots/logan-paul.vresize.220.220.medium.66.png',
@@ -476,15 +467,6 @@ async function seedWrestlers(client){
             category: 'singles, male',
             accomplishments: 'NXT North American champion, 2024 NXT Mens Breakout winner', 
             championship_id: 7,          
-        },
-        {
-            name: 'Roxanne Perez',
-            bio: 'The Prodigy',
-            picture: 'https://b.fssta.com/uploads/application/wwe/headshots/roxanne-perez.vresize.350.350.medium.64.png',
-            rating: 78,
-            category: 'singles, female',
-            accomplishments: 'NXT womens Champion, NXT womens tag-team champion, Womens Breackout Tournament winner (first ever)', 
-            championship_id: 6,          
         },
         {
             name: 'Zami Zayn',
@@ -542,7 +524,7 @@ async function seedWrestlers(client){
         {
             name: 'Paul Sherer',
             bio: 'Wolfy Master',
-            picture: 'https://mail.google.com/mail/u/0?ui=2&ik=f4fd21daa1&attid=0.1&permmsgid=msg-a:r-4903430058338878212&th=19041b934d6c3ae7&view=fimg&fur=ip&sz=s0-l75-ft&attbid=ANGjdJ8PDS0D7EQu-FIdh0GTcwiZ2e7CR4aTfYQVhicM_xdKrYzqFuDrwr-4yB4JzxDNNmdEChw6CXmkcd6GYUqBeAfsYbqhlpUGQzrOrtSMeHSemJDOZNB6JGeJyrE&disp=emb&realattid=19041b919a03e11d5bb1',
+            picture: 'https://app.gemoo.com/share/image-annotation/663605242293768192?codeId=Mpm60A4yQem2V&origin=imageurlgenerator&card=663605241589112832',
             rating: 98,
             category: 'singles, male',
             accomplishments: 'Fullstack Champion of the world',            
@@ -550,7 +532,7 @@ async function seedWrestlers(client){
     ];
 
     for(const wrestler of wrestlers){
-        await client.query(`INSERT INTO wrestlers(name, bio, picture, rating, category, accomplishments, championship_id) VALUES($1, $2, $3, $4, $5, $6, $7)`, [wrestler.name, wrestler.bio, wrestler.picture, wrestler.rating, wrestler.category, wrestler.accomplishments, wrestler.championship_id])
+        await client.query(`INSERT INTO wrestlers(name, bio, picture, rating, category, accomplishments, championship_id) VALUES($1, $2, $3, $4, $5, $6, $7)`, [wrestler.name, wrestler.bio, wrestler.picture, wrestler.rating, wrestler.category, wrestler.accomplishment, wrestler.championship_id])
     }
 
     console.log('finished wrestlers')
