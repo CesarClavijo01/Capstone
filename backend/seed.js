@@ -374,7 +374,8 @@ async function seedWrestlers(client){
             picture: 'https://b.fssta.com/uploads/application/wwe/headshots/damian-priest.vresize.220.220.medium.11.png',
             rating: 86,
             category: 'Singles, male',
-            accomplishments: 'World Hevyweight champion, Señor Money in the Bank, Undisputed WWE tag-team champion, US champion, NXT North American champion ',            
+            accomplishments: 'World Hevyweight champion, Señor Money in the Bank, Undisputed WWE tag-team champion, US champion, NXT North American champion ', 
+            championship_id: 1,           
         },
         {
             name: 'Isla Dawn',
