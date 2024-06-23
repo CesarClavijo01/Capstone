@@ -34,7 +34,7 @@ async function createTables(client){
         bio TEXT not null,
         picture TEXT not null,
         rating INT not null,
-        category VARCHAR(100) not null,
+        category TEXT not null,
         accomplishments TEXT,
         championship_id int REFERENCES championships(id)
     );`)
@@ -95,7 +95,68 @@ async function seedChampionships(client){
             picture: 'https://staticg.sportskeeda.com/editor/2022/12/60072-16710641127811-1920.jpg',
             display_picture: 'https://www.wwe.com/f/styles/og_image/public/all/2022/04/NXT_Championship--7d8ea4d925fe43df5a8f0df6f0ba7e3d.png',
             info: 'NXT'
-        }
+        },
+        {
+            name: 'WWE Womens Championship',
+            picture: 'https://upload.wikimedia.org/wikipedia/en/c/cc/WWE_Women%27s_Championship_%282023%29.jpeg',
+            display_picture: 'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/307c21f9-99cb-4088-b4ed-5c65cb4dcf94/dfzfjv3-8a95ce8a-2553-4d7f-b767-4f25069f1566.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzMwN2MyMWY5LTk5Y2ItNDA4OC1iNGVkLTVjNjVjYjRkY2Y5NFwvZGZ6Zmp2My04YTk1Y2U4YS0yNTUzLTRkN2YtYjc2Ny00ZjI1MDY5ZjE1NjYucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.xilikuLjPp2-c-RhSXSGRAuJmUPfSt0cRTw6SiNY5VU',
+            info: 'Womens Title'
+        },
+        {
+            name: 'NXT Womens Championship',
+            picture: 'https://images.footballfanatics.com/nxt/nxt-20-womens-championship-replica-title-belt_pi5110000_ff_5110012-0f0e32e1f5e76aa7f8aa_full.jpg?_hv=2',
+            display_picture: 'https://upload.wikimedia.org/wikipedia/en/b/b5/NXT_Women%27s_Championship_2.0.png',
+            info: 'NXT Womens'
+        },
+        {
+            name: 'NXT North American Championship',
+            picture: 'https://m.media-amazon.com/images/I/71MyNRd9c+L._AC_UY1000_.jpg',
+            display_picture: 'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/d68173b4-aa80-4d4d-88cb-69434e7cc381/dc896zx-7ea5c86b-18a9-41fc-b13a-0b29eb396fbc.png/v1/fill/w_1024,h_506/nxt_north_american_championship_tv__by_aplikes_by_aplikes_dc896zx-fullview.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NTA2IiwicGF0aCI6IlwvZlwvZDY4MTczYjQtYWE4MC00ZDRkLTg4Y2ItNjk0MzRlN2NjMzgxXC9kYzg5Nnp4LTdlYTVjODZiLTE4YTktNDFmYy1iMTNhLTBiMjllYjM5NmZiYy5wbmciLCJ3aWR0aCI6Ijw9MTAyNCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.hZG9wm6BptNE97BvJY3VPh1BiHnwTE3h06jXUqpeBwc',
+            info: 'Mens NXT'
+        },
+        {
+            name: 'WWE Womens Tag-Team Champions',
+            picture: 'https://www.wwe.com/f/styles/og_image/public/all/2019/01/001_TITLE_10122018gd_0319--390f194f92091c9f81fda4c77820a975.jpg',
+            display_picture: 'https://upload.wikimedia.org/wikipedia/en/d/d3/WWE_Women%27s_Tag_Team_Championship.png',
+            info: 'Womens tag-team'
+        },
+        {
+            name: 'WWE Tag-Team Championship',
+            picture: 'https://upload.wikimedia.org/wikipedia/en/3/31/WWE_Tag_Team_Championship_2024.jpeg',
+            display_picture: 'https://www.wwe.com/f/styles/wwe_large/public/all/2024/04/TITLES_03212024gd_0025_crop_Fin_(2)--03ef24470e34bc0f7065611873d7e8df.png',
+            info: 'Smack Down Tag Team'
+        },
+        {
+            name: 'World Heavyweight Tag-Team Championship',
+            picture: 'https://i.ytimg.com/vi/oSVpoNcvkck/maxresdefault.jpg',
+            display_picture: 'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/c4754840-fe04-4592-adfb-27c3160cbb5b/dhaw9wn-2e9b2b65-27f2-4e8c-941c-94eece3e99d6.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2M0NzU0ODQwLWZlMDQtNDU5Mi1hZGZiLTI3YzMxNjBjYmI1YlwvZGhhdzl3bi0yZTliMmI2NS0yN2YyLTRlOGMtOTQxYy05NGVlY2UzZTk5ZDYucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.RzKFzAVbHGoxBj3tURhvju_2890gzEiTTdS16iIZdro',
+            info: 'RAW Tag Team'
+        },
+        {
+            name: 'United States Championship',
+            picture: 'https://imageio.forbes.com/specials-images/imageserve/5f03d757bd097a000695ad1d/WWE-Unveiled-a-new-United-States-Championship-on-Raw-/960x0.jpg?format=jpg&width=960',
+            display_picture: 'https://upload.wikimedia.org/wikipedia/en/9/92/WWE_United_States_Championship_July_2020.png',
+            info: 'US Champ'
+        },
+        {
+            name: 'Intercontinental Championship',
+            picture: 'https://cdn3.whatculture.com/images/2019/11/ad9596b87960b84d-600x338.jpg',
+            display_picture: 'https://upload.wikimedia.org/wikipedia/en/b/b8/WWE_Intercontinental_Championship_2019.png',
+            info: 'Intercontinental Champ'
+        },
+        {
+            name: 'Speed Championship',
+            picture: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQayIfv0YYzm4EXo9d5PmMZRFcAL0-Tt4-smQ&s',
+            display_picture: 'https://www.wwe.com/f/styles/wwe_large/public/all/2024/05/SpeedTitle--849e7999c3d7fb657994a4b18ddaa6fa.png',
+            info: 'Speed only on X'
+        },
+        {
+            name: 'NXT Womens North American Championship',
+            picture: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1kQlashxBslwGz-gtBEwQrf5uRIC2oCzfbg&s',
+            display_picture: 'https://upload.wikimedia.org/wikipedia/en/c/c4/NXT_Womens_North_American_Championship.png',
+            info: 'Newest Championship'
+        },
+
     ];
 
     for(const championship of championships){
@@ -198,7 +259,8 @@ async function seedWrestlers(client){
             picture: 'https://b.fssta.com/uploads/application/wwe/headshots/kay-lee-ray.vresize.220.220.medium.62.png',
             rating: 74,
             category: 'singles, female',
-            accomplishments: 'NXT UK womens champion, Women tag-team champion',            
+            accomplishments: 'NXT UK womens champion, Women tag-team champion',  
+            championship_id: 8,          
         },
         {
             name: 'Alexa Bliss',
@@ -214,7 +276,8 @@ async function seedWrestlers(client){
             picture: 'https://b.fssta.com/uploads/application/wwe/headshots/andrade.vresize.220.220.medium.44.png',
             rating: 84,
             category: 'singles, males',
-            accomplishments: 'US champion & NXT champion',           
+            accomplishments: 'US champion & NXT champion',
+            championship_id: 13,           
         },
         {
             name: 'Angel Dawkins',
@@ -254,7 +317,8 @@ async function seedWrestlers(client){
             picture: 'https://b.fssta.com/uploads/application/wwe/headshots/bayley.vresize.220.220.medium.67.png',
             rating: 85,
             category: 'singles, female',
-            accomplishments: 'WWE womens champion, SmackDown Womens champion, RAW womens champion, WWE womens tag-team champion, NXT womens champion, 2024 Royal Rumble winner, 2019 Money in the bank winner, 2015 NXT female competitor of the year ',            
+            accomplishments: 'WWE womens champion, SmackDown Womens champion, RAW womens champion, WWE womens tag-team champion, NXT womens champion, 2024 Royal Rumble winner, 2019 Money in the bank winner, 2015 NXT female competitor of the year ', 
+            championship_id: 5,           
         },
         {
             name: 'Becky Lynch',
@@ -383,7 +447,8 @@ async function seedWrestlers(client){
             picture: 'https://b.fssta.com/uploads/application/wwe/headshots/isla-dawn.vresize.220.220.medium.9.png',
             rating: 74,
             category: 'tag-team, female',
-            accomplishments: 'NXT womens champion, WWE womens champion',            
+            accomplishments: 'NXT womens champion, WWE womens champion', 
+            championship_id: 8,           
         },
         {
             name: 'Logan Paul',
@@ -391,7 +456,8 @@ async function seedWrestlers(client){
             picture: 'https://b.fssta.com/uploads/application/wwe/headshots/logan-paul.vresize.220.220.medium.66.png',
             rating: 90,
             category: 'singles, male',
-            accomplishments: 'US champion',            
+            accomplishments: 'US champion', 
+            championship_id: 11,           
         },
         {
             name: 'Oba Femi',
@@ -399,7 +465,8 @@ async function seedWrestlers(client){
             picture: 'https://b.fssta.com/uploads/application/wwe/headshots/oba-femi.vresize.220.220.medium.74.png',
             rating: 85,
             category: 'singles, male',
-            accomplishments: 'NXT North American champion, 2024 NXT Mens Breakout winner',           
+            accomplishments: 'NXT North American champion, 2024 NXT Mens Breakout winner', 
+            championship_id: 7,          
         },
         {
             name: 'Zami Zayn',
@@ -407,7 +474,8 @@ async function seedWrestlers(client){
             picture: 'https://b.fssta.com/uploads/application/wwe/headshots/sami-zayn.vresize.220.220.medium.7.png',
             rating: 87,
             category: 'singles, male',
-            accomplishments: 'NXT champion, Intercontinental champion, Undisputed WWE tag-team champion',           
+            accomplishments: 'NXT champion, Intercontinental champion, Undisputed WWE tag-team champion', 
+            championship_id: 12,          
         },
         {
             name: 'The Miz',
@@ -415,7 +483,8 @@ async function seedWrestlers(client){
             picture: 'https://b.fssta.com/uploads/application/wwe/headshots/the-miz.vresize.220.220.medium.4.png',
             rating: 81,
             category: 'tag-team, male',
-            accomplishments: 'WWE champion, Intercontinental champion, US champion, RAW tag-team champion, SmackDown tag-team champion, WWE tag-team champion, World tag-team champion, Unified tag-team champion, Mr. Money in the Bank, 2 time Grand Slam Champion (first ever), Mixed Match Challenge Season 1 winner',         
+            accomplishments: 'WWE champion, Intercontinental champion, US champion, RAW tag-team champion, SmackDown tag-team champion, WWE tag-team champion, World tag-team champion, Unified tag-team champion, Mr. Money in the Bank, 2 time Grand Slam Champion (first ever), Mixed Match Challenge Season 1 winner', 
+            championship_id: 10        
         },
         {
             name: 'Austin Theory',
@@ -423,7 +492,8 @@ async function seedWrestlers(client){
             picture: 'https://b.fssta.com/uploads/application/wwe/headshots/austin-theory.vresize.220.220.medium.16.png',
             rating: 72,
             category: 'tag-team, male',
-            accomplishments: 'US champion, Mr. Money in the Bank, SmackDown tag-team champion, WWE tag-team champion',            
+            accomplishments: 'US champion, Mr. Money in the Bank, SmackDown tag-team champion, WWE tag-team champion', 
+            championship_id: 9,           
         },
         {
             name: 'R-Thruth',
@@ -431,7 +501,8 @@ async function seedWrestlers(client){
             picture: 'https://b.fssta.com/uploads/application/wwe/headshots/r-truth.vresize.220.220.medium.39.png',
             rating: 67,
             category: 'tag-team, male',
-            accomplishments: 'RAW tag-team champion, US champion, WWE tag-team champion, 2015 LOL! Moment of the Year Slammy winner, 54 time 24/7 champion (most of all time)',            
+            accomplishments: 'RAW tag-team champion, US champion, WWE tag-team champion, 2015 LOL! Moment of the Year Slammy winner, 54 time 24/7 champion (most of all time)', 
+            championship_id: 10,           
         },
         {
             name: 'Randy Orton',
@@ -447,7 +518,8 @@ async function seedWrestlers(client){
             picture: 'https://b.fssta.com/uploads/application/wwe/headshots/grayson-waller.vresize.220.220.medium.48.png',
             rating: 74,
             category: 'tag-team, male',
-            accomplishments: 'SmackDown tag-team champion, WWE tag-team champion',           
+            accomplishments: 'SmackDown tag-team champion, WWE tag-team champion',
+            championship_id: 9,           
         },
         {
             name: 'Paul Sherer',
