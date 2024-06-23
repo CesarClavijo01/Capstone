@@ -2,9 +2,9 @@ import { Button, Checkbox, Label, TextInput } from "flowbite-react";
 import { newWrestlers} from "../api/wrestlers";
 import { newChampionships } from "../api/championshiops";
 import { useContext, useState } from 'react';
-import { UserContext } from "../Context/UserContext";
 import AuthContext from "../Context/AuhtContext";
 import { newBrands } from "../api/brands";
+
 
 export default function CreateWrestler(){
     const [name, setName] = useState('');
@@ -25,6 +25,8 @@ export default function CreateWrestler(){
     const [logo, setLogo] = useState('');
 
     const {token} = useContext(AuthContext);
+    
+    
 
     async function newBrand(evt) {
         evt.preventDefault();
@@ -138,7 +140,7 @@ export default function CreateWrestler(){
                 <Button  onClick={ newWrestler }  className="btn2" type="submit">Create new wrestler</Button>
         </form>
             </div>
-            <div>
+                <div>
             <form className="createform">
         <h1 className="loginh1">New Championship</h1>
         <div>
@@ -200,6 +202,7 @@ export default function CreateWrestler(){
                 <Button  onClick={ newBrand }  className="btn2" type="submit">Create brand</Button>
         </form>
             </div>
+                            
         </div>
         </>
     )

@@ -7,8 +7,10 @@ import { login } from "../api/users";
 import AuthContext from "../Context/AuhtContext";
 
 
+
 export default function Login(){
 
+    
     
     const { setToken } = useContext(AuthContext)
     const navigate = useNavigate();
@@ -33,7 +35,9 @@ export default function Login(){
           setError(response.message);
           alert(error)
         }else{
-        navigate('/dashboard');
+          
+          
+          navigate('/dashboard');
         }
         }
 

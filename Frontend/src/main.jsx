@@ -5,6 +5,7 @@ import './index.css'
 import { BrowserRouter } from 'react-router-dom'
 import { UserProvider } from './Context/UserContext.jsx'
 import { AuthProvider } from './Context/AuhtContext.jsx'
+import { AdminProvider } from './Context/AdminContext.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

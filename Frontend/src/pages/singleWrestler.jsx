@@ -43,6 +43,7 @@ export default function SingleWrestler(){
                     <p className='mt-2 text-gray-600 text-sm'> { wrestler.bio } </p>
                     <p className='mt-2 text-gray-600 text-sm'> { wrestler.category } </p>
                     <p className='mt-2 text-gray-600 text-sm'> { wrestler.championship } </p>
+                    <p className='mt-2 text-gray-600 text-sm'> { wrestler.accomplishments }</p>
                 </div>
                 <div>
                 {/* <button 
