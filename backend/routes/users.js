@@ -20,6 +20,12 @@ router.post('/register', async (req, res, next) => {
     }
 
     try{
+        if(!first_name || !last_name || !username || !email || !password){
+            next({
+                name: 'MissingFields',
+                message: 'Please fill out all fields'
+            })
+        }
 
         const _username = await dbUsers.getUserByUsername(username)
 
@@ -104,6 +110,7 @@ router.post('/login', async (req, res, next) => {
 
             res.send({
                 message: "You are logged in",
+                user: user,
                 token: token
             })
         }

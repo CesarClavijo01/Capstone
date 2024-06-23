@@ -40,6 +40,14 @@ router.post('/', auth.requireAdmin, async (req, res, next) => {
 
 
     try{
+
+        if(!name || !bio || !picture || !rating || !category || !accomplishments){
+            next({
+                name: 'MissingFields',
+                message: 'Please fill out all fields'
+            })
+        }
+
         const newWrestler = await dbWrestlers.createNewWrestler(wrestlerObj);
 
         res.json({

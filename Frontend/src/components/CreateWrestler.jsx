@@ -37,7 +37,13 @@ export default function CreateWrestler(){
         }
 
         const result = await newBrands(BrandObj, token);
-        console.log('adding brand', result)
+        console.log('result', result.error)
+        if(result.error){
+            alert(result.message)
+        }
+        else{
+            alert('Brand Created')
+        }
     }
     
 
@@ -54,8 +60,13 @@ export default function CreateWrestler(){
         }
 
         const result = await newWrestlers(WrestlerObj, token);
-
-        console.log('adding wrestler', result);
+        console.log('result', result.error)
+        if(result.error){
+            alert(result.message)
+        }
+        else{
+            alert('Wrestler Created')
+        }
 
     }
 
@@ -70,6 +81,14 @@ export default function CreateWrestler(){
         }
 
         const result = await newChampionships(ChampionshipObj, token);
+
+        console.log('result', result.error)
+        if(result.error){
+            alert(result.message)
+        }
+        else{
+            alert('Wrestler Created')
+        }
 
         console.log('adding championship', result);
     }

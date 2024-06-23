@@ -31,7 +31,7 @@ export default function Login(){
         
         if(!response.token){
           setError(response.message);
-          console.log(error)
+          alert(error)
         }else{
         navigate('/create');
         }
@@ -54,11 +54,12 @@ export default function Login(){
           <Label  htmlFor="password2" value="Password" />
         </div>
         <TextInput value={password} onChange={(event)=> setPassword(event.target.value)} id='password2' type="Password" placeholder="password" required shadow />
+
       </div>
       
       <Button className="btn2" onClick={handleLogin} type="submit">Log-in</Button>
     </form>
-    {error && <p id="loginError">{error}</p>}
+
         </>
     )
 }
