@@ -45,7 +45,7 @@ export default function SignUp (){
             console.log('error', payload.message)
             alert(payload.message);
         }else{
-            navigate('/dashboard');
+            navigate('/login');
         }
 
         
