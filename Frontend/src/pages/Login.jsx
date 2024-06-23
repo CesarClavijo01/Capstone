@@ -14,6 +14,7 @@ export default function Login(){
     const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
 
     const userObj = {
       email: email,
@@ -24,8 +25,14 @@ export default function Login(){
     const handleLogin = async (event) => {
         event.preventDefault(event);
         const response = await login(userObj);
-        if(response.token){
-          setToken(response.token)
+        console.log('response', response)
+
+        setToken(response.token);
+        
+        if(!response.token){
+          setError(response.message);
+          console.log(error)
+        }else{
         navigate('/create');
         }
         }
@@ -51,6 +58,7 @@ export default function Login(){
       
       <Button className="btn2" onClick={handleLogin} type="submit">Log-in</Button>
     </form>
+    {error && <p id="loginError">{error}</p>}
         </>
     )
 }

@@ -18,6 +18,17 @@ export function WrestlerCard({wrestler}){
                     </h1>
                     <h2 className="ratingH2">2K Rating: {wrestler.rating}</h2>
                 </div>
+                <div className="championshipContainer">
+                    {wrestler.championship ? (
+                        <>
+                            <img className="championshipImg" src={wrestler.display} alt="championshipDisplay" />
+                        </>
+                    ) : 
+                    (
+                        <>
+                        
+                        </>
+                    )} </div>
                 
             </div>
         </div>

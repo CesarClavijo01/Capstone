@@ -159,3 +159,13 @@
     color: white;
   }
  
+  .championshipImg {
+    width: 150px;
+    position: absolute
+  }
+
+.championshipContainer {
+  position: relative;
+  bottom: 110%;
+  right: 62%;
+}
