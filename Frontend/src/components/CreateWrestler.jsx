@@ -1,9 +1,12 @@
 import { Button, Checkbox, Label, TextInput } from "flowbite-react";
 import { newWrestlers} from "../api/wrestlers";
 import { newChampionships } from "../api/championshiops";
-import { useContext, useState } from 'react';
-import AuthContext from "../Context/AuhtContext";
+import { useContext, useState, useEffect } from 'react';
 import { newBrands } from "../api/brands";
+import { useAuthStatus } from "../hooks/useAuthStatus";
+import { getMe } from "../api/users";
+
+
 
 
 export default function CreateWrestler(){
@@ -24,7 +27,17 @@ export default function CreateWrestler(){
     const [description, setDescription] = useState('');
     const [logo, setLogo] = useState('');
 
-    const {token} = useContext(AuthContext);
+    const [user, setUser] = useState(null);
+
+    const {token} = useAuthStatus();
+
+    useEffect(() => {
+        (async function () {
+          const loggedUser = await getMe(token);
+          setUser(loggedUser);
+          console.log(setUser)
+        })();
+      }, [token]);
     
     
 

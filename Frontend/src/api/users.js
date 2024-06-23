@@ -45,3 +45,23 @@ export async function login(userData) {
       console.error(error);
     }
   }
+
+  //get me
+
+  export async function getMe(token) {
+    if (!token) return;
+    try {
+      const response = await fetch(`${baseURL}/users/${id}`, {
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      const result = await response.json();
+      if (result.id) {
+        return result;
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
