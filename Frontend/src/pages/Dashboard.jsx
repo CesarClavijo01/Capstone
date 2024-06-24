@@ -1,10 +1,13 @@
 import { getMe } from "../api/users";
+import {getUserRosters} from "../api/rosters" 
 import { useAuthStatus } from "../hooks/useAuthStatus";
 import { useState, useEffect } from "react";
 import "../components/nav.css";
 
 export default function Dashboard(){
     const [user, setUser] = useState(null);
+
+    const [ roster, setRoster] = useState([]);
 
     const {token} = useAuthStatus();
 
@@ -15,6 +18,21 @@ export default function Dashboard(){
           
         })();
       }, [token]);
+
+      useEffect(()=>{
+        
+        async function renderRosters(){
+            try{
+                const receivedRosters = await getUserRosters();
+                console.log(receivedRosters)
+                setWrestlers(receivedRosters);
+            }
+            catch(err){
+                console.error(err)
+            }
+        }
+        renderRosters()
+    },[token]);
 
     return(
         <>
