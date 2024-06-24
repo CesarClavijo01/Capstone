@@ -78,11 +78,11 @@ async function getRostersByUserId(userId){
 
 async function removeRoster(rosterId){
     try{
-        const { rows: [ roster ] } = client.query(`
+        const result = client.query(`
             DELETE FROM rosters WHERE id=$1`, [rosterId]
         );
 
-        return roster
+        return result.rows
     }
     catch(err){
         throw err
@@ -119,6 +119,24 @@ async function getRosterByUserId(userId){
     }
 }
 
+async function getRosterByUserWrestlerId(userId, wrestler_id){
+    try{
+        const result = await client.query(`
+            SELECT rosters.id as id, wrestlers.id as wrestler_id, wrestlers.name as wrestlerName, wrestlers.bio as bio, wrestlers.picture as wrestlerPicture, wrestlers.rating as rating, wrestlers.category as category, wrestlers.accomplishments as accomplishments, championships.name as championshipName, championships.picture as championshipPicture, championships.display_picture as championshipDisplayPicture, brands.name as brandName, brands.logo as logo, brands.is_default as isDefault, rosters.user_id as userId 
+            FROM rosters
+            left JOIN wrestlers on wrestlers.id=rosters.wrestler_id 
+            left JOIN championships on championships.id=wrestlers.championship_id
+            left JOIN brands on brands.id=rosters.brand_id
+            WHERE rosters.user_id=$1
+            AND wrestler_id=$2`, [userId, wrestler_id])
+
+            return result.rows
+    }
+    catch(err){
+        throw err
+    }
+}
+
 module.exports = {
     createNewRoster,
     removeRosterByWrestler,
@@ -127,5 +145,6 @@ module.exports = {
     getRostersByUserId,
     removeRoster,
     updateRoster,
-    getRosterByUserId
+    getRosterByUserId,
+    getRosterByUserWrestlerId
 }
