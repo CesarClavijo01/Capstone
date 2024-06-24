@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 
 export default function SingleWrestler(){
     const {wrestlerId} = useParams();
-
     const [ wrestler, setWrestler] = useState({})
 
     useEffect(()=>{

@@ -1,7 +1,7 @@
 const baseURL = 'http://localhost:3000/api';
 
 //create new roster
-async function createNewRoster(token, wrestlerId, brandId){
+export async function createNewRoster(token, wrestlerId, brandId){
     try{
         const response = await fetch(`${baseURL}/rosters/${wrestlerId}/${brandId}`,{
             method: 'POST',
@@ -20,7 +20,7 @@ async function createNewRoster(token, wrestlerId, brandId){
     }
 }
 
-async function getUserRosters(token){
+export async function getUserRosters(token){
     try{
         const response = await fetch(`${baseURL}/rosters`,{
             headers:{
