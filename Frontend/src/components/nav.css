@@ -63,6 +63,10 @@
   
   }
 
+  .rosterContainer{
+    overflow: wrap;
+  }
+
   .wrestlerH1{
     font-size: x-large;
     font-weight: bold;
@@ -110,8 +114,10 @@
     color: white;
     left: 2%;
     top: 10%;
-    position: absolute;
-    padding: 5px
+    position: relative;
+    padding: 2px;
+    display: flex;
+    justify-content: space-around ;
   }
 
   .singleContainer{

@@ -176,24 +176,24 @@ async function seedWrestlers(client){
             picture: 'https://b.fssta.com/uploads/application/wwe/headshots/jey-uso.vresize.350.350.medium.69.png',
             rating: 90,
             category: 'singles, male',
-            accomplishments: 'tag champ'
+            accomplishments: 'RAW tag-team champion, SmackDown tag-team champion, WWE tag-team champion, Undisputed WWE tag-team champion, 2021 Andre the Giant Memorial Battle Royal Winner'
         },
         {
             name: 'Drew McIntyre',
-            bio: 'Scotish Nightmare',
+            bio: 'Scotish Warrior',
             picture: 'https://b.fssta.com/uploads/application/wwe/headshots/drew-mcintyre.vresize.350.350.medium.99.png',
             rating: 89,
             category: 'singles, male',
-            accomplishments: 'WWE champ',
+            accomplishments: 'WWE champion, World Hevyweight champion, 2020 Royal Rumble Winner, Intercontinental champion, WWE tag-team champion, RAW tag-team champion, NXT champion',
 
         },
         {
             name: 'Liv Morgan',
-            bio: 'Rvenge Tour',
+            bio: 'Revenge Tour',
             picture: 'https://b.fssta.com/uploads/application/wwe/headshots/liv-morgan.vresize.350.350.medium.58.png',
             rating: 85,
             category: 'singles, female',
-            accomplishments: 'Womens World champ',
+            accomplishments: 'SmackDown womens champion, Womens World champion, Ms Money in the Bank',
             championship_id: 3
         },
         {
@@ -202,7 +202,7 @@ async function seedWrestlers(client){
             picture: 'https://b.fssta.com/uploads/application/wwe/headshots/stardust.vresize.350.350.medium.82.png',
             rating: 93,
             category: 'singles, male',
-            accomplishments: 'Dustys son',
+            accomplishments: 'WWE champion, Universal champion, Intercontinental champion, World tag-team champion, WWE tag-team champion, RAW tag-team champion, SmackDown tag-team champion, 2023 & 2024 Royal Rumble winner',
             championship_id: 2
         },
         {
@@ -211,6 +211,7 @@ async function seedWrestlers(client){
             picture: 'https://b.fssta.com/uploads/application/wwe/headshots/la-knight.vresize.350.350.medium.20.png',
             rating: 88,
             category: 'singles, male',
+            accomplishments: 'Million Dollar champion'
         },
         {
             name: 'Trick Williams',
@@ -218,24 +219,24 @@ async function seedWrestlers(client){
             picture: 'https://b.fssta.com/uploads/application/wwe/headshots/trick-williams.vresize.350.350.medium.47.png',
             rating: 78,
             category: 'singles, male',
-            accomplishments: 'NXT Champion',
+            accomplishments: 'NXT Champion, NXT Nort American champion',
             championship_id: 4
         },
         {
             name: 'John Cena',
-            bio: 'Hustle, Loyalty and Respect',
+            bio: 'Hustle, Loyalty and Respect, GOAT',
             picture: 'https://b.fssta.com/uploads/application/wwe/headshots/john-cena.vresize.350.350.medium.6.png',
             rating: 89,
             category: 'singles, male',
-            accomplishments: '16 time WWE champion',            
+            accomplishments: '16 time WWE champion(tied for most ever), World Hevyweight champion, US champion, World tag-team champion, WWE tag-team champion, Mr. Money in the Bank',            
         },
         {
             name: 'Roman Reigns',
             bio: 'Tribal Chief, Head of the Table',
-            picture: 'https://b.fssta.com/uploads/application/wwe/headshots/roman-reigns.vresize.350.350.medium.91.png',
+            picture: 'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/0c782e4c-fae0-4a87-b7b1-a752598d9df9/dehj3ge-9f19250e-dd1e-443a-bfb1-eeb42259e249.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzBjNzgyZTRjLWZhZTAtNGE4Ny1iN2IxLWE3NTI1OThkOWRmOVwvZGVoajNnZS05ZjE5MjUwZS1kZDFlLTQ0M2EtYmZiMS1lZWI0MjI1OWUyNDkucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.e6ZcBktl4ODWmu5A78AVOT7TvlEj0GggqhsLEAQThxM',
             rating: 97,
             category: 'singles, male',
-            accomplishments: 'Longest WWE championship reign in the last 35 years',            
+            accomplishments: 'Longest WWE championship reign in the last 35 years, Universal Champion, Intercontinental Champion, US champion, WWE tag-team champion, 2015 Royal Rumble winner, 2014 Superstar of the Year Slammy Award winner',            
         },
         {
             name: 'CM Punk',
@@ -243,7 +244,7 @@ async function seedWrestlers(client){
             picture: 'https://b.fssta.com/uploads/application/wwe/headshots/cm-punk.vresize.350.350.medium.83.png',
             rating: 90,
             category: 'singles, male',
-            accomplishments: '5 times WWE champion',           
+            accomplishments: 'WWE champion, World Hevyweight champion, ECW champion, World tag-team champion, Intercontinental champion, 2 Time Mr. Money in the Bank',           
         },
         {
             name: 'AJ Styles',
@@ -251,7 +252,7 @@ async function seedWrestlers(client){
             picture: 'https://b.fssta.com/uploads/application/wwe/headshots/aj-styles.vresize.220.220.medium.42.png',
             rating: 85,
             category: 'singles, male',
-            accomplishments: 'Grand slam champion',           
+            accomplishments: 'WWE champion, US champion, Intercontinental champion, RAW tag-team champion',           
         },
         {
             name: 'Alba Fyre',
@@ -268,7 +269,7 @@ async function seedWrestlers(client){
             picture: 'https://b.fssta.com/uploads/application/wwe/headshots/alexa-bliss.vresize.220.220.medium.93.png',
             rating: 83,
             category: 'singles, female',
-            accomplishments: '5 times WWE womens champion',           
+            accomplishments: 'SmackDown womens champion, Raw womens champion, WWE tag-team champion, Ms. Money in the Bank',           
         },
         {
             name: 'Andrade',
@@ -276,11 +277,11 @@ async function seedWrestlers(client){
             picture: 'https://b.fssta.com/uploads/application/wwe/headshots/andrade.vresize.220.220.medium.44.png',
             rating: 84,
             category: 'singles, males',
-            accomplishments: 'US champion & NXT champion',
+            accomplishments: 'US champion, NXT champion',
             championship_id: 13,           
         },
         {
-            name: 'Angel Dawkins',
+            name: 'Angelo Dawkins',
             bio: 'Street Profit',
             picture: 'https://b.fssta.com/uploads/application/wwe/headshots/angelo-dawkins.vresize.220.220.medium.5.png',
             rating: 74,
@@ -290,7 +291,7 @@ async function seedWrestlers(client){
         {
             name: 'Asuka',
             bio: 'The empress of tomorrow',
-            picture: 'https://b.fssta.com/uploads/application/wwe/headshots/asuka.vresize.220.220.medium.9.png',
+            picture: 'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/3485bbc5-0d81-4da9-8213-cd5274553220/de0fz5j-4a6f74da-30c0-49a1-ac7b-c9ccd0a1f641.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzM0ODViYmM1LTBkODEtNGRhOS04MjEzLWNkNTI3NDU1MzIyMFwvZGUwZno1ai00YTZmNzRkYS0zMGMwLTQ5YTEtYWM3Yi1jOWNjZDBhMWY2NDEucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.46qjrjjn57y_06LL0_E6ljP-AA5wTXUtz7pB-r7SjTk',
             rating: 90,
             category: 'tag-team, female',
             accomplishments: 'WWE womens champion, Raw womens champion, SmackDown womens champion, 2020 womens money in the bank winner, First-ever womens Royal Rumble winner, WWE womens tag-team champion, NXT womens champion',            
@@ -435,7 +436,7 @@ async function seedWrestlers(client){
         {
             name: 'Damian Priest',
             bio: 'The Archer of Infamy',
-            picture: 'https://b.fssta.com/uploads/application/wwe/headshots/damian-priest.vresize.220.220.medium.11.png',
+            picture: 'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/9d0ec099-4a20-469d-98ed-2203317e4c30/dgfp1uz-2276c2f8-c4bc-4886-b529-e992357d7444.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzlkMGVjMDk5LTRhMjAtNDY5ZC05OGVkLTIyMDMzMTdlNGMzMFwvZGdmcDF1ei0yMjc2YzJmOC1jNGJjLTQ4ODYtYjUyOS1lOTkyMzU3ZDc0NDQucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.96UQLyivpsNCaiFcIfB50OkQpWBpUADnhY9BSc2elOM',
             rating: 86,
             category: 'Singles, male',
             accomplishments: 'World Hevyweight champion, Señor Money in the Bank, Undisputed WWE tag-team champion, US champion, NXT North American champion ', 
@@ -462,7 +463,7 @@ async function seedWrestlers(client){
         {
             name: 'Oba Femi',
             bio: 'Nigerian',
-            picture: 'https://b.fssta.com/uploads/application/wwe/headshots/oba-femi.vresize.220.220.medium.74.png',
+            picture: 'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/43b07f92-f486-4f0c-8aa8-ee7aba569eaf/dg8tn45-635c8690-0c8c-4b8f-ad46-50b480e5cc03.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzQzYjA3ZjkyLWY0ODYtNGYwYy04YWE4LWVlN2FiYTU2OWVhZlwvZGc4dG40NS02MzVjODY5MC0wYzhjLTRiOGYtYWQ0Ni01MGI0ODBlNWNjMDMucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.Wn2Hk4bfmkjp93jSykUCzF04_kM0M9PqeDYWjAch5zk',
             rating: 85,
             category: 'singles, male',
             accomplishments: 'NXT North American champion, 2024 NXT Mens Breakout winner', 
