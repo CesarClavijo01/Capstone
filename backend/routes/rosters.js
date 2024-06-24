@@ -11,7 +11,6 @@ router.post('/:wrestlerId/:brandId', auth.requireUser, async (req, res, next) =>
     try{
         //find if the wrestler is in a roster already
         const _wrestlers = await dbRosters.getRosterByUserWrestlerId(id, wrestlerId);
-        console.log('w', _wrestlers)
 
         if(_wrestlers.length > 0){
             for(let i = 0; i < _wrestlers.length; i++){
