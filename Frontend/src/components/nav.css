@@ -96,7 +96,7 @@
     max-height: 600px;
   }
 
-  .brandCard :hover {zoom: 105%;}
+  
   /* .card :hover {zoom:105%} */
 
   .brandCard {
@@ -105,6 +105,25 @@
     margin-top: 150px;
     color: white;
   }
+
+  .header{
+    color: white;
+    left: 2%;
+    top: 10%;
+    position: absolute;
+    padding: 5px
+  }
+
+  .singleContainer{
+    position: relative;
+    align-self: center;
+    color: white;
+    padding-left: 41%;
+    padding-right: 41%;
+    margin-top: 2%;
+  }
+
+  
 
   .brandCardContainer{
     display: flex;

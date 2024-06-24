@@ -52,16 +52,17 @@ export async function login(userData) {
   export async function getMe(token) {
     if (!token) return;
     try {
-      const response = await fetch(`${baseURL}/users/${id}`, {
+      const response = await fetch(`${baseURL}/users/me`, {
         headers: {
           'Content-Type': 'application/json',
           Authorization: `Bearer ${token}`,
         },
       });
       const result = await response.json();
-      if (result.id) {
+      console.log("result", result)
+      
         return result;
-      }
+      
     } catch (error) {
       console.error(error);
     }
