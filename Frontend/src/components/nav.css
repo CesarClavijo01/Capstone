@@ -216,9 +216,10 @@
 .draftBrandsContainer{
   display: flex;
   flex-direction: column;
-  position: absolute;
+  position: relative;
   left: 76%;
-  top: 24%;
+  top: 2rem;
+  max-width: 100px;
 }
 
 .draftTitle{
