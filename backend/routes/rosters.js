@@ -10,29 +10,23 @@ router.post('/:wrestlerId/:brandId', auth.requireUser, async (req, res, next) =>
     const { id } = req.user
     try{
         //find if the wrestler is in a roster already
-        const rosters = await dbRosters.getRostersByUserId(id)
+        const _wrestlers = await dbRosters.getRosterByUserWrestlerId(id, wrestlerId);
+        console.log('w', _wrestlers)
 
-        console.log('_roster is', rosters)
-
-        const _wrestler = rosters.map((roster) =>
-            roster.wrestlerid == wrestlerId
-        )
-
-        if(_wrestler.length > 0){
-            next({
-                name: 'RosterError',
-                message: 'Sorry this wrestler already belongs in a brand'
-            })
-        }else if(_wrestler.length < 1){
-
-            const newRoster = await dbRosters.createNewRoster(id, brandId, wrestlerId)
-
-            res.send({
-                name: 'success',
-                message: 'New Roster Created',
-                roster: newRoster
-            })
+        if(_wrestlers.length > 0){
+            for(let i = 0; i < _wrestlers.length; i++){
+                await dbRosters.removeRoster(_wrestlers[i].id)
+            }
         }
+
+        const newRoster = await dbRosters.createNewRoster(id, brandId, wrestlerId)
+
+        res.send({
+            name: 'success',
+            message: 'New Roster Created',
+            roster: newRoster
+        })
+        
     }
     catch(err){
         next(err)
