@@ -3,7 +3,7 @@ import { useAuthStatus } from "../hooks/useAuthStatus";
 import { useState, useEffect } from "react";
 import "../components/nav.css";
 
-export default function(){
+export default function Dashboard(){
     const [user, setUser] = useState(null);
 
     const {token} = useAuthStatus();
