@@ -26,6 +26,12 @@ export default function NavBar() {
             <div className='imgdiv'>
                 <Link to='/'><img className='imglogo' src={WWE_Logo} alt="logo" /></Link>
             </div>
+            <Link
+                        to='/dashboard'
+                        className="navlink"
+                       >
+                       Dashboard
+                       </Link>
                     {loggedIn ? (
                         <>
                         {admin &&

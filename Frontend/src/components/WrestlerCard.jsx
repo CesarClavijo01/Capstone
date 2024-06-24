@@ -5,7 +5,7 @@ export function WrestlerCard({wrestler}){
     const navigate = useNavigate();
 
     function handleClick(){
-        navigate(`/api/wrestlers/${wrestler.id}`);
+        navigate(`/wrestlers/${wrestler.id}`);
     }
 
     return(

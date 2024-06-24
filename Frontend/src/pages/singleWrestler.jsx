@@ -11,7 +11,8 @@ export default function SingleWrestler(){
         async function oneWrestler(){
             try {
                 const receivedWrestler = await getSingleWrestler(wrestlerId)
-                setWrestler(receivedWrestler)
+                console.log(receivedWrestler);
+                setWrestler(receivedWrestler);
             }
             catch(err){
                 console.error(err)
@@ -32,7 +33,7 @@ export default function SingleWrestler(){
     }
 
     return(
-        <div className="container">
+        <div className="singleContainer">
             <div className="card">
                 <img src={wrestler.picture} alt={wrestler.name} className="wrestlerimg" />
                 <div>
@@ -42,7 +43,6 @@ export default function SingleWrestler(){
                     <h2 className="text-lg">2K Rating: {wrestler.rating}</h2>
                     <p className='mt-2 text-gray-600 text-sm'> { wrestler.bio } </p>
                     <p className='mt-2 text-gray-600 text-sm'> { wrestler.category } </p>
-                    <p className='mt-2 text-gray-600 text-sm'> { wrestler.championship } </p>
                     <p className='mt-2 text-gray-600 text-sm'> { wrestler.accomplishments }</p>
                 </div>
                 <div>

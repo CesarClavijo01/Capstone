@@ -1044,7 +1044,7 @@ async function seedWrestlers(client){
     ];
 
     for(const wrestler of wrestlers){
-        await client.query(`INSERT INTO wrestlers(name, bio, picture, rating, category, accomplishments, championship_id) VALUES($1, $2, $3, $4, $5, $6, $7)`, [wrestler.name, wrestler.bio, wrestler.picture, wrestler.rating, wrestler.category, wrestler.accomplishment, wrestler.championship_id])
+        await client.query(`INSERT INTO wrestlers(name, bio, picture, rating, category, accomplishments, championship_id) VALUES($1, $2, $3, $4, $5, $6, $7)`, [wrestler.name, wrestler.bio, wrestler.picture, wrestler.rating, wrestler.category, wrestler.accomplishments, wrestler.championship_id])
     }
 
     console.log('finished wrestlers')
