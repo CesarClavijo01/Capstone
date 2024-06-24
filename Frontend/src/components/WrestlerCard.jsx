@@ -1,11 +1,17 @@
 import { useNavigate } from "react-router-dom";
 import './nav.css'
+import { useAuthStatus } from '../hooks/useAuthStatus';
 
 export function WrestlerCard({wrestler}){
+    const { loggedIn } = useAuthStatus();
     const navigate = useNavigate();
 
     function handleClick(){
-        navigate(`/wrestlers/${wrestler.id}`);
+        if(!loggedIn){
+            navigate(`/wrestlers/${wrestler.id}`);
+        }else{
+            navigate(`/draftWrestler/${wrestler.id}`)
+        }
     }
 
     return(

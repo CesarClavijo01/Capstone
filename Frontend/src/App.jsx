@@ -11,6 +11,7 @@ import SignUp from './pages/SignUp';
 import CreateWrestler from './components/CreateWrestler';
 import Dashboard from './pages/Dashboard';
 import PrivateRoute from './components/PrivateRoute';
+import DraftWrestler from './pages/DraftWrestler';
 
 
 function App() {
@@ -29,8 +30,8 @@ function App() {
         <Route path='/brands/:brandId' element={<SingleBrand/>} ></Route>
         <Route path='/Signup' element={<SignUp/>}></Route>
         <Route path='/dashboard' element={<PrivateRoute/>}><Route path='/dashboard' element={<Dashboard/>}/></Route>
-        <Route path='/dashboard' element={<Dashboard/>}/>
         <Route path='/create' element={<CreateWrestler setWrestler={setWrestler} werstler={wrestler} token={token}/>}></Route>
+        <Route path='/draftWrestler/:wrestlerId' element={<PrivateRoute/>}><Route path='/draftWrestler/:wrestlerId' element={<DraftWrestler/>}/></Route>
       </Routes>
       
     </>

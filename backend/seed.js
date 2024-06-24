@@ -1141,11 +1141,6 @@ async function seedRosters(client){
         },
         {
             user_id: 1,
-            wrestler_id: 4,
-            brand_id: 2
-        },
-        {
-            user_id: 1,
             wrestler_id: 5,
             brand_id: 2
         },

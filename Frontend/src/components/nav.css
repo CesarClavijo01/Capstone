@@ -121,11 +121,10 @@
   }
 
   .singleContainer{
-    position: relative;
+    position: absolute;
     align-self: center;
     color: white;
-    padding-left: 41%;
-    padding-right: 41%;
+    left: 39%;
     margin-top: 2%;
   }
 
@@ -194,4 +193,51 @@
   position: relative;
   bottom: 110%;
   right: 62%;
+}
+
+.draftWrestlerContainer{
+  position: absolute;
+    align-self: center;
+    color: white;
+    left: 5%;
+    margin-top: 2%;
+}
+
+.draftBrandLogo{
+  width: 100%;
+}
+
+.draftBrandBox{
+  width: 213px;
+  margin: 1rem;
+  cursor: pointer;
+}
+
+.draftBrandsContainer{
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  left: 76%;
+  top: 24%;
+}
+
+.draftTitle{
+  position: absolute;
+  left: 38%;
+  font-size: xxx-large;
+}
+
+.draftBtn{
+  font-size: xx-large;
+  padding: 1rem;
+  background-color: #1d1d1d;
+  color: white;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.btnBox{
+  position: absolute;
+  bottom: 10%;
+  left: 46%;
 }
