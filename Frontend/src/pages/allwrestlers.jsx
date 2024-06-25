@@ -5,6 +5,7 @@ import "../components/nav.css";
 
 export default function AllWrestlers(){
     const [wrestlers, setWrestlers] = useState([]);
+    const [searchValue, setSearchValue] = useState('')
 
     useEffect(()=>{
         
@@ -20,14 +21,29 @@ export default function AllWrestlers(){
         }
         renderWrestlers()
     },[]);
+
+    const searchHandler = (event) => {
+        setSearchValue(event.target.value)
+    }
+
+    const searchResults = wrestlers.filter((wrestler) => {
+        const lowerCaseWrestler = wrestler.wrestlername.toLowerCase();
+        return lowerCaseWrestler.includes(searchValue.toLowerCase());
+    })
     return(
         <>
+        <input 
+            className="searchBar" 
+            placeholder="Search by Name" 
+            onChange={searchHandler}
+            value={searchValue}
+        />
         <div className="cardContainer">
-            {wrestlers.map((wrestler)=>{
+            {searchResults.map((result)=>{
                 return(
                     <WrestlerCard
-                    key={wrestler.id}
-                    wrestler={wrestler}
+                    key={result.id}
+                    result={result}
                     />
                 );
             })}

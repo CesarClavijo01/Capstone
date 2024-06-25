@@ -2,32 +2,32 @@ import { useNavigate } from "react-router-dom";
 import './nav.css'
 import { useAuthStatus } from '../hooks/useAuthStatus';
 
-export function WrestlerCard({wrestler}){
+export function WrestlerCard({result}){
     const { loggedIn } = useAuthStatus();
     const navigate = useNavigate();
 
     function handleClick(){
         if(!loggedIn){
-            navigate(`/wrestlers/${wrestler.id}`);
+            navigate(`/wrestlers/${result.id}`);
         }else{
-            navigate(`/draftWrestler/${wrestler.id}`)
+            navigate(`/draftWrestler/${result.id}`)
         }
     }
 
     return(
         <div className="container" onClick={handleClick}>
             <div className="card">
-                <img src={wrestler.picture} alt={wrestler.name} className="wrestlerimg" />
+                <img src={result.picture} alt={result.name} className="wrestlerimg" />
                 <div>
                     <h1 className="wrestlerH1" >
-                        {wrestler.wrestlername}
+                        {result.wrestlername}
                     </h1>
-                    <h2 className="ratingH2">2K Rating: {wrestler.rating}</h2>
+                    <h2 className="ratingH2">2K Rating: {result.rating}</h2>
                 </div>
                 <div className="championshipContainer">
-                    {wrestler.championship ? (
+                    {result.championship ? (
                         <>
-                            <img className="championshipImg" src={wrestler.display} alt="championshipDisplay" />
+                            <img className="championshipImg" src={result.display} alt="championshipDisplay" />
                         </>
                     ) : 
                     (
