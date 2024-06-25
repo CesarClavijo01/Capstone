@@ -142,7 +142,6 @@
 
   .header{
     color: white;
-    left: 2%;
     top: 10%;
     position: relative;
     padding: 2px;
@@ -271,4 +270,10 @@
   position: absolute;
   bottom: 10%;
   left: 46%;
+}
+
+.searchBar{
+  position: relative;
+  left: 1%;
+  margin-top: 2%;
 }

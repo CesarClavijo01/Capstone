@@ -525,10 +525,18 @@ async function seedWrestlers(client){
         {
             name: 'Paul Sherer',
             bio: 'Wolfy Master',
-            picture: 'https://app.gemoo.com/share/image-annotation/663605242293768192?codeId=Mpm60A4yQem2V&origin=imageurlgenerator&card=663605241589112832',
+            picture: 'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/f191d76c-d03b-4c64-aafc-4b776e661721/dfcom9t-a50beab9-377e-4a6c-bb2d-cb7e7b018670.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2YxOTFkNzZjLWQwM2ItNGM2NC1hYWZjLTRiNzc2ZTY2MTcyMVwvZGZjb205dC1hNTBiZWFiOS0zNzdlLTRhNmMtYmIyZC1jYjdlN2IwMTg2NzAucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.Adk_86Hbc3OTm8_Ien33A0-HjfWmNLeyfzV5G3srfbI',
             rating: 98,
             category: 'singles, male',
             accomplishments: 'Fullstack Champion of the world',            
+        },
+        {
+            name: 'Esteban Ordonez',
+            bio: 'Banchito',
+            picture: 'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/f191d76c-d03b-4c64-aafc-4b776e661721/dfk8tn7-39d28f09-7786-4c53-ba32-501984fea42d.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2YxOTFkNzZjLWQwM2ItNGM2NC1hYWZjLTRiNzc2ZTY2MTcyMVwvZGZrOHRuNy0zOWQyOGYwOS03Nzg2LTRjNTMtYmEzMi01MDE5ODRmZWE0MmQucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.RoIXmfAAUkdyrehPX65MbKIuIO844y4gcnkeLQsh5b8',
+            rating: 99,
+            category: 'singles, male',
+            accomplishments: 'No 1 contender for the Fullstack Champion of the world',            
         },
         {
             name: 'Kayden Carter',
@@ -1091,7 +1099,7 @@ async function seedBrands(client){
         user_id: 1
         },
 
-        {name: 'SmackDown', 
+        {name: 'Smack Down', 
         show_time:'Friday', 
         description: 'Second Show', 
         logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/WWE_SmackDown_%282019%29_Logo.svg/750px-WWE_SmackDown_%282019%29_Logo.svg.png',

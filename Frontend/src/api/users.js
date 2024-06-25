@@ -59,9 +59,8 @@ export async function login(userData) {
         },
       });
       const result = await response.json();
-      console.log("result", result)
       
-        return result;
+      return result;
       
     } catch (error) {
       console.error(error);
