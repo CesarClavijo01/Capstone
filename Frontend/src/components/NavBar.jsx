@@ -35,12 +35,20 @@ export default function NavBar() {
                     {loggedIn ? (
                         <>
                         {admin &&
+                        <>
                         <Link
                         to='/create'
                         className="navlink"
                        >
                        Create
-                       </Link>}
+                       </Link>
+                       <Link
+                       to='/users'
+                       className="navlink"
+                      >
+                      Users
+                      </Link>
+                      </>}
                         <Link
                         to='/brands'
                         className="navlink"
