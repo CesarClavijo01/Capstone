@@ -17,6 +17,8 @@ export default function EditWrestler(){
     const [championships, setChampionships] = useState([]);
     const [championshipId, setChampionshipId] = useState(null);
     const [newChamp, setNewChamp] = useState({})
+    const [champ, setChamp] = useState(null)
+    const [removed, setRemoved] = useState(null)
 
     useEffect(()=>{
         async function oneWrestler(){
@@ -29,7 +31,7 @@ export default function EditWrestler(){
             }
         }
         oneWrestler()
-    },[])
+    },[removed, champ])
     
     useEffect(() => {
         async function renderBrands(){
@@ -79,6 +81,7 @@ export default function EditWrestler(){
 
         try{
             const editChamp = await updateWrestlerChampionship(token, wrestler.id, championshipId)
+            setChamp(championshipId)
         }
         catch(err){
             console.error(err)
@@ -90,6 +93,7 @@ export default function EditWrestler(){
 
         try{
             const removeChamp = await removeChampion(token, wrestler.id)
+            setRemoved(championshipId)
         }
         catch(err){
             console.error(err)
