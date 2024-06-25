@@ -42,6 +42,7 @@
     overflow: wrap;
     text-align: center;
     align-self: center;
+    max-width: 17rem;
   }
 
   .btn{
