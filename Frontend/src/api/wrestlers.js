@@ -51,4 +51,41 @@ export async function newWrestlers(wrestlersObj, token) {
     }
 }
 
+export async function updateWrestlerChampionship(token, wrestlerId, championshipId){
+    try{
+        const response = await fetch(`${baseURL}/api/wrestlers/${wrestlerId}/${championshipId}`, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${token}`,
+            }   
+        })
+
+        const result = await response.json();
+
+        return result
+    }
+    catch(err){
+        console.error(err)
+    }
+}
+
+export async function removeChampion(token, wrestlerId){
+    try{
+        const response = await fetch(`${baseURL}/api/wrestlers/${wrestlerId}`,{
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${token}`,
+            }
+        })
+
+        const result = await response.json();
+        
+        return result
+    }
+    catch(err){
+        console.error(err)
+    }
+}
 //delete wrestler

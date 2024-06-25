@@ -268,7 +268,7 @@
 }
 .btnBox{
   position: absolute;
-  bottom: 10%;
+  bottom: 3%;
   left: 46%;
 }
 
@@ -276,4 +276,22 @@
   position: relative;
   left: 1%;
   margin-top: 2%;
+}
+
+.editChampionshipContainer{
+  display: ruby;
+  position: absolute;
+  left: 30%;
+  top: 11rem;
+  max-width: 592px;
+}
+
+.editChampionshipBox{
+  width: 117px;
+  margin: 1rem;
+  cursor: pointer;
+}
+
+.editChampionshipImg{
+  width: 100%;
 }

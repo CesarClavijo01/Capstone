@@ -12,6 +12,7 @@ import CreateWrestler from './components/CreateWrestler';
 import Dashboard from './pages/Dashboard';
 import PrivateRoute from './components/PrivateRoute';
 import DraftWrestler from './pages/DraftWrestler';
+import EditWrestler from './pages/EditWrestler'
 
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
         <Route path='/dashboard' element={<PrivateRoute/>}><Route path='/dashboard' element={<Dashboard/>}/></Route>
         <Route path='/create' element={<CreateWrestler setWrestler={setWrestler} werstler={wrestler} token={token}/>}></Route>
         <Route path='/draftWrestler/:wrestlerId' element={<PrivateRoute/>}><Route path='/draftWrestler/:wrestlerId' element={<DraftWrestler/>}/></Route>
+        <Route path='editWrestler/:wrestlerId' element={<EditWrestler/>}></Route>
       </Routes>
       
     </>
