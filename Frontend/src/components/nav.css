@@ -299,3 +299,23 @@
 .editChampionshipImg{
   width: 100%;
 }
+
+.editChampionshipImgCard{
+  width: 100%;
+}
+
+.editChampionshipCardBox{
+  width: 100%;
+  bottom: 665%;
+  right: 70%;
+}
+
+.removeChampBtnBox{
+  position: relative;
+}
+
+.editChampionshipCardContainer{
+  position: absolute;
+  left: 54%;
+  top: -2rem;
+}

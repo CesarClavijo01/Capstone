@@ -121,18 +121,23 @@ export default function EditWrestler(){
                         <p className='mt-2 text-gray-600 text-sm'> { wrestler.bio } </p>
                         <p className='mt-2 text-gray-600 text-sm'> { wrestler.category } </p>
                         <p className='mt-2 text-gray-600 text-sm'> { wrestler.accomplishments }</p>
-                        <div className="editChampionshipContainer">
                         {wrestler.championship ? (
-                        <>
-                            <div className='editChampionshipBox'>
-                            <img className="editChampionshipImg" src={wrestler.display} alt="championshipDisplay" />
-                            </div>
                             <div 
                             className='removeChampBtnBox'
                             onClick={handleRemove}
                             >
                                 <button>Remove Championship</button>
                             </div>
+                        ) : (
+                            <></>
+                        )}
+                        <div className="editChampionshipCardContainer">
+                        {wrestler.championship ? (
+                        <>
+                            <div className='editChampionshipCardBox'>
+                            <img className="editChampionshipImgCard" src={wrestler.display} alt="championshipDisplay" />
+                            </div>
+
                         </>
                         ) : 
                         (
