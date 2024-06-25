@@ -1091,7 +1091,7 @@ async function seedBrands(client){
         user_id: 1
         },
 
-        {name: 'Smack Down', 
+        {name: 'SmackDown', 
         show_time:'Friday', 
         description: 'Second Show', 
         logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/WWE_SmackDown_%282019%29_Logo.svg/750px-WWE_SmackDown_%282019%29_Logo.svg.png',

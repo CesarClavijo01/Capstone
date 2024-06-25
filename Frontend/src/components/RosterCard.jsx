@@ -1,10 +1,12 @@
 import './nav.css'
 
 export function RosterCard({roster}){
+
+
     return(
         <div className="container">
             <div className="card">
-                <img src={roster.wrestlerpicture} alt={roster.name} className="wrestlerimg" />
+                <img src={roster.wrestlerpicture} alt={roster.name} className={`wrestlerimgbase ${roster.brandname}`} />
                 <div>
                     <h1 className="wrestlerH1" >
                         {roster.wrestlername}
