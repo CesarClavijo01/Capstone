@@ -66,3 +66,46 @@ export async function login(userData) {
       console.error(error);
     }
   };
+
+
+  //get all users
+
+  export async function getAllUsers(token) {
+    if (!token) return;
+    try {
+      const response = await fetch(`${baseURL}/users`, {
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      const result = await response.json();
+      console.log("users", result)
+      
+        return result;
+      
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  // edit user
+
+  export async function editUsers(token, userid) {
+    if (!token) return;
+    try {
+      const response = await fetch(`${baseURL}/users/${userid}`,{
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      const result = await response.json();
+      console.log("1", result)
+      return result; 
+    }
+    catch(err){
+      console.error(err)
+    }
+  }
