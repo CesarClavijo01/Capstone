@@ -5,7 +5,7 @@ export function BrandCard({brand}){
     const navigate = useNavigate();
 
     function handleClick(){
-        navigate(`/api/brands/${brand.id}`);
+        navigate(`/brands/${brand.id}`);
     }
 
     return(

@@ -7,6 +7,7 @@ import AuthContext from '../Context/AuhtContext';
 export default function Users(){
     const [users, setUsers] = useState([]);
     const { token } = useContext(AuthContext)
+    const [ newadmin, setNewAdmin] = useState(null);
 
     useEffect(()=>{
         async function renderUsers(){
@@ -20,7 +21,7 @@ export default function Users(){
             }
         }
         renderUsers()
-    },[]);
+    },[newadmin]);
     return(
         <>
         <div>
@@ -29,6 +30,7 @@ export default function Users(){
                     <UserCard
                     key={user.id}
                     user={user}
+                    setNewAdmin={setNewAdmin}
                     />
                 )
             })}

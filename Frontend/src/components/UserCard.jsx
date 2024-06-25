@@ -4,20 +4,21 @@ import { useContext } from 'react'
 import AuthContext from '../Context/AuhtContext';
 
 
-export default function UserCard({user}) {
+export default function UserCard({user, setNewAdmin}) {
     const { token } = useContext(AuthContext);
+
+    
     
 
     async function handleClick(){
         try{
         const edit = await editUsers(token, user.id)
+        setNewAdmin(true)
         return edit
         }
         catch(err){
             console.error(err);
         }
-
-        
     }
 
     return(
