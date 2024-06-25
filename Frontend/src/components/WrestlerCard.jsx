@@ -1,16 +1,21 @@
 import { useNavigate } from "react-router-dom";
 import './nav.css'
 import { useAuthStatus } from '../hooks/useAuthStatus';
+import { AdminContext } from '../Context/AdminContext';
+import { useContext } from "react"
 
 export function WrestlerCard({result}){
     const { loggedIn } = useAuthStatus();
     const navigate = useNavigate();
+    const { admin } = useContext(AdminContext);
 
     function handleClick(){
         if(!loggedIn){
             navigate(`/wrestlers/${result.id}`);
-        }else{
+        }else if(!admin){
             navigate(`/draftWrestler/${result.id}`)
+        }else{
+            navigate(`/editWrestler/${result.id}`)
         }
     }
 
