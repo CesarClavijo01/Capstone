@@ -1,4 +1,4 @@
-const baseURL = 'http://localhost:3000/api';
+const baseURL = 'https://capstone-sd4h.onrender.com';
 
 //post new obj in users table
 
@@ -36,7 +36,6 @@ export async function login(userData) {
         }),
       });
       const result = await response.json();
-      console.log('result', result)
       if (result.token) {
         localStorage.setItem('token', JSON.stringify(result.token));
         localStorage.setItem('admin', JSON.stringify(result.user.admin))
@@ -80,9 +79,8 @@ export async function login(userData) {
         },
       });
       const result = await response.json();
-      console.log("users", result)
       
-        return result;
+      return result;
       
     } catch (error) {
       console.error(error);
@@ -102,7 +100,6 @@ export async function login(userData) {
         },
       });
       const result = await response.json();
-      console.log("1", result)
       return result; 
     }
     catch(err){

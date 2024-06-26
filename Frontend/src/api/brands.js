@@ -1,4 +1,4 @@
-const baseURL = 'http://localhost:3000/api';
+const baseURL = 'https://capstone-sd4h.onrender.com';
 
 
 //getting all brands
@@ -6,7 +6,7 @@ export async function getBrands(){
     try{
         const response = await fetch(`${baseURL}/brands`);
         const result= await response.json();
-        console.log(result)
+
         return result;
     }
     catch(err){

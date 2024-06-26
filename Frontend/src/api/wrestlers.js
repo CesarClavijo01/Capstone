@@ -1,4 +1,4 @@
-const baseURL = 'http://localhost:3000';
+const baseURL = 'https://capstone-sd4h.onrender.com';
 
 //getting wrestlers
 
@@ -6,7 +6,6 @@ export async function getWrestlers(){
     try{
         const response = await fetch(`${baseURL}/api/wrestlers`);
         const result= await response.json();
-        console.log(result)
         return result;
     }
     catch(err){

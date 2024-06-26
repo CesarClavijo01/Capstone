@@ -1,4 +1,4 @@
-const baseURL = 'http://localhost:3000/api';
+const baseURL = 'https://capstone-sd4h.onrender.com';
 
 //get all championships
 
@@ -6,7 +6,6 @@ export async function getChampionships(){
     try{
         const response = await fetch(`${baseURL}/championships`);
         const result= await response.json();
-        console.log(result)
         return result;
     }
     catch(err){
