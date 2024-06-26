@@ -1,4 +1,4 @@
-const baseURL = 'http://localhost:3000/api';
+const baseURL = 'https://capstone-sd4h.onrender.com';
 
 //create new roster
 export async function createNewRoster(token, wrestlerId, brandId){
@@ -30,7 +30,6 @@ export async function getUserRosters(token){
         })
 
         const result = await response.json()
-        console.log('api' ,result)
         return result
     }
     catch(err){
